@@ -507,8 +507,24 @@ window.addEventListener('scroll',()=>document.getElementById('nav').classList.to
 
 // MOBILE
 let mobOpen=false;
-function toggleMob(){mobOpen=!mobOpen;document.getElementById('mobNav').classList.toggle('open',mobOpen);document.getElementById('burger').classList.toggle('open',mobOpen);document.body.style.overflow=mobOpen?'hidden':'';}
-function closeMob(){mobOpen=false;document.getElementById('mobNav').classList.remove('open');document.getElementById('burger').classList.remove('open');document.body.style.overflow='';}
+function toggleMob(){
+  mobOpen=!mobOpen;
+  const mobNav=document.getElementById('mobNav');
+  const burger=document.getElementById('burger');
+  if(mobNav) mobNav.classList.toggle('open',mobOpen);
+  if(mobNav) mobNav.setAttribute('aria-hidden', mobOpen ? 'false' : 'true');
+  if(burger) burger.classList.toggle('open',mobOpen);
+  document.body.style.overflow=mobOpen?'hidden':'';
+}
+function closeMob(){
+  mobOpen=false;
+  const mobNav=document.getElementById('mobNav');
+  const burger=document.getElementById('burger');
+  if(mobNav) mobNav.classList.remove('open');
+  if(mobNav) mobNav.setAttribute('aria-hidden', 'true');
+  if(burger) burger.classList.remove('open');
+  document.body.style.overflow='';
+}
 
 // WAVEFORM
 const wf7=document.getElementById('wf7');
