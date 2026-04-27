@@ -451,9 +451,9 @@ nav.stuck{background:rgba(17,17,17,.93);backdrop-filter:blur(20px);padding:1.1re
 .h-words{font-family:'Unbounded',sans-serif;font-weight:800;line-height:.82;letter-spacing:-.05em;text-transform:uppercase;display:flex;flex-direction:column;color:var(--w)}
 .h-line1{
   font-size:clamp(2.7rem,6.6vw,8.8rem);
-  display:inline-flex;
-  align-items:flex-start;
-  gap:.04em;
+  display:inline-block;
+  position:relative;
+  padding-right:.75em;
   opacity:0;
   animation:fadeUp .8s var(--ease) .4s forwards;
   color:var(--w);
@@ -464,13 +464,14 @@ nav.stuck{background:rgba(17,17,17,.93);backdrop-filter:blur(20px);padding:1.1re
 }
 .h-line1 .brand-main{display:inline-block;line-height:.78}
 .h-line1 .brand-c{
+  position:absolute;
+  left:100%;
+  top:.06em;
   display:inline-block;
-  font-size:clamp(1rem,2.1vw,1.7rem);
+  font-size:clamp(.28rem,.6vw,.48rem);
   line-height:1;
-  align-self:flex-start;
-  transform:translateY(.04em);
   letter-spacing:0;
-  margin-left:.02em;
+  transform:translateX(.02em);
 }
 .h-line2{font-size:clamp(.95rem,1.9vw,2.4rem);display:block;color:rgba(240,237,230,.72);font-weight:500;letter-spacing:.1em;opacity:0;animation:fadeUp .8s var(--ease) .6s forwards;margin-top:.75rem}
 .h-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-top:.75rem;opacity:0;animation:fadeUp .6s var(--ease) 1s forwards}
