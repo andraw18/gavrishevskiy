@@ -88,8 +88,8 @@ nav.stuck{background:rgba(17,17,17,.93);backdrop-filter:blur(20px);padding:1.1re
 .n-logo:hover .nav-logo-text,.n-logo:focus-visible .nav-logo-text{opacity:1;transform:translateY(-50%) scale(1)}
 .n-logo b{color:var(--red)}
 .n-links{display:flex;gap:2.5rem;align-items:center;margin-left:auto}
-.n-links a{font-family:'Unbounded',sans-serif;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);transition:color .2s}
-.n-links a:hover{color:var(--w)}
+.n-links a{font-family:'Unbounded',sans-serif;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--w);transition:color .2s}
+.n-links a:hover{color:var(--dim)}
 .n-cta{border:1px solid var(--red)!important;color:var(--red)!important;padding:.45rem 1.55rem!important;transition:all .2s!important}
 .n-cta:hover{background:var(--red)!important;color:var(--w)!important;animation:btnShake .42s steps(2,end) both}
 .n-right{display:flex;align-items:center;gap:.75rem;flex-shrink:0;margin-left:.75rem}
