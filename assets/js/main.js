@@ -171,9 +171,6 @@ if (cur) {
 
     video.pause();
 
-    card.addEventListener('mouseenter', () => playCard(card));
-    card.addEventListener('mouseleave', () => pauseCard(card));
-
     playBtn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
