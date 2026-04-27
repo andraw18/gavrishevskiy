@@ -84,6 +84,7 @@ nav.stuck{background:rgba(17,17,17,.93);backdrop-filter:blur(20px);padding:1.1re
 .n-logo{display:flex;align-items:center;justify-content:flex-start;line-height:1;position:relative}
 .nav-logo-svg{width:34px;height:auto;display:block;color:var(--w);filter:drop-shadow(0 0 10px rgba(230,50,50,.16));transition:opacity .2s var(--ease),transform .2s var(--ease)}
 .nav-logo-text{position:absolute;left:0;top:50%;transform:translateY(-50%) scale(.98);opacity:0;font-family:'Unbounded',sans-serif;font-size:.43rem;letter-spacing:.28em;text-transform:uppercase;color:var(--w);white-space:nowrap;transition:opacity .2s var(--ease),transform .2s var(--ease)}
+.brand-c{font-size:.56em;line-height:0;vertical-align:super;display:inline-block;transform:translateY(-.08em)}
 .n-logo:hover .nav-logo-svg,.n-logo:focus-visible .nav-logo-svg{opacity:0;transform:scale(.92)}
 .n-logo:hover .nav-logo-text,.n-logo:focus-visible .nav-logo-text{opacity:1;transform:translateY(-50%) scale(1)}
 .n-logo b{color:var(--red)}
@@ -449,6 +450,7 @@ nav.stuck{background:rgba(17,17,17,.93);backdrop-filter:blur(20px);padding:1.1re
 .h-title{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:1rem}
 .h-words{font-family:'Unbounded',sans-serif;font-weight:800;line-height:.82;letter-spacing:-.05em;text-transform:uppercase;display:flex;flex-direction:column;color:var(--w)}
 .h-line1{font-size:clamp(2.7rem,6.6vw,8.8rem);display:block;opacity:0;animation:fadeUp .8s var(--ease) .4s forwards;color:var(--w);letter-spacing:-.075em;line-height:.78;max-width:100%;white-space:nowrap}
+.h-line1 .brand-c{font-size:.46em;vertical-align:super;transform:translateY(-.12em)}
 .h-line2{font-size:clamp(.95rem,1.9vw,2.4rem);display:block;color:rgba(240,237,230,.72);font-weight:500;letter-spacing:.1em;opacity:0;animation:fadeUp .8s var(--ease) .6s forwards;margin-top:.75rem}
 .h-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-top:.75rem;opacity:0;animation:fadeUp .6s var(--ease) 1s forwards}
 .h-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;flex-shrink:0;width:min(18vw,220px)}
