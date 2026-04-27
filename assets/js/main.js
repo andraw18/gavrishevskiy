@@ -66,13 +66,13 @@ if (cur) {
   const applyHeroData = () => {
     const data = safeJson(localStorage.getItem(STORAGE_KEY));
     const hero = data.hero || {};
-    const desiredLine1 = 'GAVRISHEVSKIY©';
+    const desiredLine1 = 'G-TEAM©';
 
     const line1 = document.querySelector('.hero .h-line1');
     const line2 = document.querySelector('.hero .h-line2');
     const btns = Array.from(document.querySelectorAll('.hero .h-actions a'));
 
-    if (hero.line1 === 'GAVRISHEVSKY©' || !hero.line1) {
+    if (hero.line1 === 'GAVRISHEVSKY©' || hero.line1 === 'GAVRISHEVSKIY©' || !hero.line1) {
       hero.line1 = desiredLine1;
       data.hero = hero;
       try {
