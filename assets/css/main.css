@@ -135,6 +135,9 @@ nav.stuck{background:rgba(17,17,17,.93);backdrop-filter:blur(20px);padding:1.1re
   height:18px;
   display:block;
   color:currentColor;
+  position:relative;
+  left:1px;
+  top:1px;
 }
 .sound-ico svg{
   width:100%;
