@@ -31,11 +31,11 @@ if (cur) {
     window.setTimeout(() => root.classList.remove('ice-warp'), 1150);
   };
 
-  window.setTimeout(triggerWarp, 4500);
+  window.setTimeout(triggerWarp, 3500);
   const loop = () => {
-    const wait = 14000 + Math.random() * 14000;
+    const wait = 10000 + Math.random() * 9000;
     window.setTimeout(() => {
-      if (Math.random() < 0.9) triggerWarp();
+      if (Math.random() < 0.95) triggerWarp();
       loop();
     }, wait);
   };
