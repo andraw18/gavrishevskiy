@@ -109,7 +109,7 @@ nav.stuck{background:rgba(17,17,17,.93);backdrop-filter:blur(20px);padding:1.1re
 .n-right{display:flex;align-items:center;gap:.75rem;flex-shrink:0;margin-left:.75rem}
 .sound-btn{
   position:fixed;
-  left:.9rem;
+  left:2.5rem;
   right:auto;
   top:50vh;
   transform:translateY(-50%);
@@ -767,7 +767,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9990;pointer-events:none;b
   .n-links a:not(.n-cta){display:none}.burger{display:flex}.n-cta{display:none}
   .n-links{margin-left:0}
   .n-right{gap:.55rem;margin-left:.55rem}
-  .sound-btn{left:.75rem;width:48px;height:48px}
+  .sound-btn{left:1.5rem;width:48px;height:48px}
   .advice-mini{right:1.5rem;top:calc(50vh + 28px);font-size:.46rem;max-width:9rem}
   .synth{left:.75rem;right:.75rem;bottom:.75rem;width:auto;padding:.85rem}
   .advice-modal{padding:.85rem}
