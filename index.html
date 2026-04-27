@@ -90,16 +90,15 @@
     <a href="#contact" class="n-cta">Связаться</a>
   </div>
   <div class="n-right">
-    <div class="n-track" aria-label="Now playing">
-      <span class="n-track-ico" aria-hidden="true">
+    <button class="sound-btn" id="soundBtn" type="button" aria-label="Включить трек" aria-pressed="false">
+      <span class="sound-ico" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M16 4v10.5a3.5 3.5 0 1 1-2-3.16V7.2l8-1.6V13a3.5 3.5 0 1 1-2-3.16V5.1L16 5.7V4Z" fill="currentColor"/>
         </svg>
       </span>
-      <span class="n-track-text">Ritual Loop · Red Mix</span>
-    </div>
-    <button class="sound-btn" id="soundBtn" type="button" aria-label="Начинающий артист? есть совет" aria-pressed="false">
-      <span class="sound-btn-text">Начинающий артист? есть совет</span>
+    </button>
+    <button class="advice-mini" id="adviceBtn" type="button" aria-label="Открыть советы для начинающих артистов">
+      <span class="advice-mini-text">Начинающий артист?<br>есть совет</span>
     </button>
     <button class="burger" id="burger" onclick="toggleMob()"><span></span><span></span><span></span></button>
   </div>
