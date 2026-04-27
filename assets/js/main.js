@@ -431,6 +431,7 @@ if (cur) {
     titleEl.textContent = step.title;
     bodyEl.textContent = step.body;
     noEl.textContent = String(index + 1).padStart(2, '0');
+    if (nextBtn) nextBtn.textContent = index === steps.length - 1 ? 'Связаться' : 'Далее';
     renderDots();
   };
 
@@ -455,6 +456,12 @@ if (cur) {
   };
 
   const next = () => {
+    if (index === steps.length - 1) {
+      close();
+      const contact = document.getElementById('contact');
+      if (contact) contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
     index = (index + 1) % steps.length;
     render();
   };
