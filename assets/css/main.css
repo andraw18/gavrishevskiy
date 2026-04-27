@@ -88,7 +88,7 @@ nav.stuck{background:rgba(17,17,17,.93);backdrop-filter:blur(20px);padding:1.1re
 .n-logo:hover .nav-logo-text,.n-logo:focus-visible .nav-logo-text{opacity:1;transform:translateY(-50%) scale(1)}
 .n-logo b{color:var(--red)}
 .n-brandline{
-  margin-left:1rem;
+  margin-left:calc(1rem + 60px);
   margin-right:1rem;
   flex-shrink:0;
   font-family:'Unbounded',sans-serif;
