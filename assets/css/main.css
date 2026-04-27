@@ -465,10 +465,10 @@ nav.stuck{background:rgba(17,17,17,.93);backdrop-filter:blur(20px);padding:1.1re
 .h-line1 .brand-main{display:inline-block;line-height:.78}
 .h-line1 .brand-c{
   display:inline-block;
-  font-size:clamp(.32rem,.62vw,.65rem);
-  line-height:1;
+  font-size:clamp(.58rem,.95vw,.92rem);
+  line-height:.9;
   letter-spacing:0;
-  transform:translateY(.08em);
+  transform:translateY(-.18em);
   flex-shrink:0;
 }
 .h-line2{font-size:clamp(.95rem,1.9vw,2.4rem);display:block;color:rgba(240,237,230,.72);font-weight:500;letter-spacing:.1em;opacity:0;animation:fadeUp .8s var(--ease) .6s forwards;margin-top:.75rem}
