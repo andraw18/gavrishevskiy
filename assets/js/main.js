@@ -80,7 +80,18 @@ if (cur) {
       } catch {}
     }
 
-    if (line1) line1.textContent = hero.line1 || desiredLine1;
+    const renderBrandLine = (value) => {
+      if (!line1) return;
+      const raw = (value || desiredLine1).trim();
+      const base = raw.replace(/©\s*$/, '');
+      line1.innerHTML = `<span class="brand-main">${base}</span><span class="brand-c">©</span>`;
+    };
+
+    if (hero.line1 && hero.line1.endsWith('©')) {
+      renderBrandLine(hero.line1);
+    } else if (line1) {
+      line1.textContent = hero.line1 || desiredLine1;
+    }
     if (line2 && hero.line2) line2.textContent = hero.line2;
 
     if (btns[0] && hero.btn1Text) btns[0].textContent = hero.btn1Text;
