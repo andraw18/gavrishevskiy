@@ -188,268 +188,183 @@ if (cur) {
   });
 })();
 
-// MINI SYNTH
+// TRACK PLAYER
 (function(){
   const btn = document.getElementById('soundBtn');
-  const panel = document.getElementById('synthPanel');
-  const closeBtn = document.getElementById('synthClose');
-  const loopBtn = document.getElementById('synLoopBtn');
-  const pads = Array.from(document.querySelectorAll('.syn-pad'));
-  if (!btn || !panel) return;
+  if (!btn) return;
 
   const NOTE_FREQ = {
-    C3: 130.81, 'C#3': 138.59, D3: 146.83, 'D#3': 155.56, E3: 164.81,
-    F3: 174.61, 'F#3': 185.00, G3: 196.00, 'G#3': 207.65, A3: 220.00,
-    'A#3': 233.08, B3: 246.94, C4: 261.63, D4: 293.66, E4: 329.63, G4: 392.00, A4: 440.00,
-    C5: 523.25, D5: 587.33
+    C2: 65.41,
+    D2: 73.42,
+    Eb2: 77.78,
+    F2: 87.31,
+    G2: 98.00,
+    Ab2: 103.83,
+    Bb1: 58.27,
+    C3: 130.81
   };
-  const loopSeq = ['C3','E3','G3','A3','G3','E3','D3','C3'];
-  const KEY_MAP = {
-    KeyA: 'C3',
-    KeyW: 'C#3',
-    KeyS: 'D3',
-    KeyE: 'D#3',
-    KeyD: 'E3',
-    KeyF: 'F3',
-    KeyT: 'F#3',
-    KeyG: 'G3',
-    KeyY: 'G#3',
-    KeyH: 'A3',
-    KeyU: 'A#3',
-    KeyJ: 'B3',
-    KeyK: 'C4'
-  };
+
+  const seq = [
+    {kick:true,bass:'C2',hat:false},
+    {kick:false,bass:'Eb2',hat:true},
+    {kick:false,bass:'G2',hat:false},
+    {kick:true,bass:'Bb1',hat:true},
+    {kick:false,bass:'C2',hat:false},
+    {kick:false,bass:'Ab2',hat:true},
+    {kick:false,bass:'G2',hat:false},
+    {kick:true,bass:'F2',hat:true}
+  ];
 
   let ctx = null;
   let master = null;
-  let loopTimer = null;
-  let loopOn = false;
-  let panelOpen = false;
+  let timer = null;
+  let playing = false;
   let step = 0;
-  const padByCode = new Map();
+  const stepMs = 340;
 
-  const setBtnState = (open) => {
-    btn.classList.toggle('active', open);
-    btn.setAttribute('aria-pressed', open ? 'true' : 'false');
-    btn.setAttribute('aria-label', open ? 'Закрыть синтезатор' : 'Открыть синтезатор');
+  const setState = (on) => {
+    btn.classList.toggle('active', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    btn.setAttribute('aria-label', on ? 'Остановить трек' : 'Включить трек');
   };
 
   const ensureAudio = async () => {
     if (!ctx) {
       ctx = new (window.AudioContext || window.webkitAudioContext)();
       master = ctx.createGain();
-      master.gain.value = 0.14;
+      master.gain.value = 0.12;
+
       const comp = ctx.createDynamicsCompressor();
       comp.threshold.value = -24;
-      comp.knee.value = 24;
+      comp.knee.value = 22;
       comp.ratio.value = 3.6;
-      comp.attack.value = 0.008;
-      comp.release.value = 0.22;
+      comp.attack.value = 0.006;
+      comp.release.value = 0.18;
 
-      const wet = ctx.createGain();
-      wet.gain.value = 0.12;
-
+      const send = ctx.createGain();
+      send.gain.value = 0.14;
       const dry = ctx.createGain();
       dry.gain.value = 1;
 
-      const convolver = ctx.createConvolver();
-      const irLen = Math.min(ctx.sampleRate * 1.6, ctx.sampleRate * 2.2);
-      const impulse = ctx.createBuffer(2, irLen, ctx.sampleRate);
-      for (let c = 0; c < impulse.numberOfChannels; c++) {
-        const ch = impulse.getChannelData(c);
-        for (let i = 0; i < irLen; i++) {
-          const decay = Math.pow(1 - i / irLen, 2.8);
-          ch[i] = (Math.random() * 2 - 1) * decay * (c === 0 ? 0.65 : 0.55);
-        }
-      }
-      convolver.buffer = impulse;
+      const delay = ctx.createDelay(0.32);
+      delay.delayTime.value = 0.12;
+      const fb = ctx.createGain();
+      fb.gain.value = 0.22;
+      delay.connect(fb);
+      fb.connect(delay);
 
       master.connect(dry);
-      master.connect(convolver);
-      convolver.connect(wet);
+      master.connect(send);
+      send.connect(delay);
+      delay.connect(comp);
+      fb.connect(comp);
       dry.connect(comp);
-      wet.connect(comp);
       comp.connect(ctx.destination);
     }
     if (ctx.state === 'suspended') await ctx.resume();
   };
 
-  const playTone = (freq, dur = 0.22, type = 'triangle', gainVal = 0.12) => {
-    if (!ctx || !master) return;
-    const t = ctx.currentTime;
-
-    const osc1 = ctx.createOscillator();
-    const osc2 = ctx.createOscillator();
-    const osc3 = ctx.createOscillator();
-    const amp = ctx.createGain();
-    const filt = ctx.createBiquadFilter();
-    const pan = ctx.createStereoPanner?.();
-
-    osc1.type = 'triangle';
-    osc2.type = 'sine';
-    osc3.type = 'sine';
-    osc1.frequency.setValueAtTime(freq, t);
-    osc2.frequency.setValueAtTime(freq * 2, t);
-    osc3.frequency.setValueAtTime(freq * 3, t);
-    osc2.detune.setValueAtTime(-3, t);
-    osc3.detune.setValueAtTime(4, t);
-
-    amp.gain.setValueAtTime(0.0001, t);
-    amp.gain.exponentialRampToValueAtTime(Math.max(gainVal * 0.95, 0.0003), t + 0.006);
-    amp.gain.exponentialRampToValueAtTime(Math.max(gainVal * 0.58, 0.0002), t + Math.max(dur * 0.42, 0.08));
-    amp.gain.exponentialRampToValueAtTime(0.0001, t + dur + 0.22);
-
-    filt.type = 'lowpass';
-    filt.frequency.setValueAtTime(Math.min(5200, freq * 10), t);
-    filt.frequency.exponentialRampToValueAtTime(Math.min(2400, freq * 5.8), t + Math.min(dur * 0.7, 0.28));
-    filt.Q.value = 1.1;
-
-    if (pan) {
-      pan.pan.setValueAtTime((Math.random() * 0.5) - 0.25, t);
-      osc1.connect(filt);
-      osc2.connect(filt);
-      osc3.connect(filt);
-      filt.connect(amp);
-      amp.connect(pan);
-      pan.connect(master);
-    } else {
-      osc1.connect(filt);
-      osc2.connect(filt);
-      osc3.connect(filt);
-      filt.connect(amp);
-      amp.connect(master);
-    }
-
-    const sub = ctx.createOscillator();
-    const subAmp = ctx.createGain();
-    sub.type = 'sine';
-    sub.frequency.setValueAtTime(freq * 0.5, t);
-    subAmp.gain.setValueAtTime(0.0001, t);
-    subAmp.gain.exponentialRampToValueAtTime(Math.min(gainVal * 0.22, 0.04), t + 0.015);
-    subAmp.gain.exponentialRampToValueAtTime(0.0001, t + dur + 0.2);
-    sub.connect(subAmp);
-    if (pan) subAmp.connect(pan); else subAmp.connect(master);
-
-    osc1.start(t);
-    osc2.start(t);
-    osc3.start(t);
-    sub.start(t);
-    osc1.stop(t + dur + 0.34);
-    osc2.stop(t + dur + 0.34);
-    osc3.stop(t + dur + 0.34);
-    sub.stop(t + dur + 0.34);
+  const env = (gainNode, t, a = 0.004, d = 0.26, s = 0.5, r = 0.18, peak = 1) => {
+    gainNode.gain.cancelScheduledValues(t);
+    gainNode.gain.setValueAtTime(0.0001, t);
+    gainNode.gain.exponentialRampToValueAtTime(Math.max(peak, 0.0002), t + a);
+    gainNode.gain.exponentialRampToValueAtTime(Math.max(peak * s, 0.0001), t + a + d);
+    gainNode.gain.exponentialRampToValueAtTime(0.0001, t + a + d + r);
   };
 
-  const flashPad = (pad) => {
-    if (!pad) return;
-    pad.classList.add('active');
-    window.setTimeout(() => pad.classList.remove('active'), 160);
+  const kick = (t) => {
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    const f = ctx.createBiquadFilter();
+    o.type = 'sine';
+    o.frequency.setValueAtTime(148, t);
+    o.frequency.exponentialRampToValueAtTime(46, t + 0.13);
+    f.type = 'lowpass';
+    f.frequency.setValueAtTime(240, t);
+    g.gain.value = 0.001;
+    env(g, t, 0.003, 0.1, 0.35, 0.16, 1);
+    o.connect(f);
+    f.connect(g);
+    g.connect(master);
+    o.start(t);
+    o.stop(t + 0.35);
   };
 
-  const playPad = async (pad) => {
-    if (!pad) return;
-    await openPanel();
-    const note = pad.dataset.note || 'C4';
-    const freq = NOTE_FREQ[note] || NOTE_FREQ.C4;
-    playTone(freq, 0.38, 'triangle', note === 'C3' ? 0.1 : 0.085);
-    flashPad(pad);
+  const bass = (freq, t) => {
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    const f = ctx.createBiquadFilter();
+    o.type = 'triangle';
+    o.frequency.setValueAtTime(freq, t);
+    o.detune.setValueAtTime(-3, t);
+    f.type = 'lowpass';
+    f.frequency.setValueAtTime(Math.min(900, freq * 7.5), t);
+    f.Q.value = 1.2;
+    env(g, t, 0.006, 0.2, 0.55, 0.2, 0.78);
+    o.connect(f);
+    f.connect(g);
+    g.connect(master);
+    o.start(t);
+    o.stop(t + 0.62);
   };
 
-  const openPanel = async () => {
+  const hat = (t) => {
+    const noise = ctx.createBufferSource();
+    const buf = ctx.createBuffer(1, Math.floor(ctx.sampleRate * 0.08), ctx.sampleRate);
+    const ch = buf.getChannelData(0);
+    for (let i = 0; i < ch.length; i++) ch[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / ch.length, 2);
+    noise.buffer = buf;
+    const f = ctx.createBiquadFilter();
+    const g = ctx.createGain();
+    f.type = 'highpass';
+    f.frequency.setValueAtTime(5200, t);
+    env(g, t, 0.002, 0.035, 0.18, 0.06, 0.18);
+    noise.connect(f);
+    f.connect(g);
+    g.connect(master);
+    noise.start(t);
+    noise.stop(t + 0.09);
+  };
+
+  const tick = () => {
+    const t = ctx.currentTime + 0.015;
+    const slot = seq[step % seq.length];
+    if (slot.kick) kick(t);
+    if (slot.bass) bass(NOTE_FREQ[slot.bass] || 65.41, t);
+    if (slot.hat) hat(t + 0.02);
+    step = (step + 1) % seq.length;
+  };
+
+  const start = async () => {
     await ensureAudio();
-    panel.classList.add('on');
-    panel.setAttribute('aria-hidden', 'false');
-    panelOpen = true;
-    setBtnState(true);
+    if (playing) return;
+    playing = true;
+    setState(true);
+    tick();
+    timer = window.setInterval(tick, stepMs);
   };
 
-  const closePanel = () => {
-    panel.classList.remove('on');
-    panel.setAttribute('aria-hidden', 'true');
-    panelOpen = false;
-    setBtnState(false);
-    if (loopTimer) {
-      clearInterval(loopTimer);
-      loopTimer = null;
+  const stop = () => {
+    playing = false;
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
     }
-    loopOn = false;
-    if (loopBtn) {
-      loopBtn.classList.remove('on');
-      loopBtn.textContent = 'Loop: off';
-    }
+    setState(false);
   };
 
-  const startLoop = async () => {
-    await openPanel();
-    if (loopTimer) return;
-    loopOn = true;
-    loopBtn?.classList.add('on');
-    if (loopBtn) loopBtn.textContent = 'Loop: on';
-    step = 0;
-    playTone(NOTE_FREQ[loopSeq[0]], 0.44, 'triangle', 0.1);
-    loopTimer = window.setInterval(() => {
-      if (!loopOn) return;
-      const note = loopSeq[step % loopSeq.length];
-      const freq = NOTE_FREQ[note];
-      const accent = step % 4 === 0 ? 0.12 : 0.085;
-      playTone(freq, 0.38, 'triangle', accent);
-      step = (step + 1) % loopSeq.length;
-    }, 360);
-  };
-
-  const stopLoop = () => {
-    loopOn = false;
-    if (loopTimer) {
-      clearInterval(loopTimer);
-      loopTimer = null;
-    }
-    if (loopBtn) {
-      loopBtn.classList.remove('on');
-      loopBtn.textContent = 'Loop: off';
-    }
-  };
-
-  btn.addEventListener('click', async () => {
-    if (panelOpen) {
-      closePanel();
-    } else {
-      await openPanel();
-    }
-  });
-
-  closeBtn?.addEventListener('click', closePanel);
-  loopBtn?.addEventListener('click', () => {
-    if (loopOn) {
-      stopLoop();
-    } else {
-      startLoop().catch(() => {});
-    }
-  });
-
-  pads.forEach(pad => {
-    const code = pad.dataset.code;
-    if (code) padByCode.set(code, pad);
-    pad.addEventListener('click', () => { playPad(pad).catch(() => {}); });
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && panelOpen) closePanel();
-    if (e.repeat) return;
-    if (e.target && /^(INPUT|TEXTAREA|SELECT)$/i.test(e.target.tagName)) return;
-    const pad = padByCode.get(e.code);
-    if (!pad) return;
-    e.preventDefault();
-    playPad(pad).catch(() => {});
+  btn.addEventListener('click', () => {
+    if (playing) stop();
+    else start().catch(() => {});
   });
 })();
 
 // BEGINNER ADVICE MODAL
 (function(){
-  const btn = document.getElementById('soundBtn');
+  const btn = document.getElementById('adviceBtn');
   const modal = document.getElementById('adviceModal');
   if (!btn || !modal) return;
 
-  const root = document.getElementById('pageRoot');
   const titleEl = document.getElementById('adviceStepTitle');
   const bodyEl = document.getElementById('adviceStepBody');
   const noEl = document.getElementById('adviceNo');
