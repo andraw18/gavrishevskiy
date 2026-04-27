@@ -466,12 +466,12 @@ nav.stuck{background:rgba(17,17,17,.93);backdrop-filter:blur(20px);padding:1.1re
 .h-line1 .brand-c{
   position:absolute;
   left:100%;
-  top:.06em;
+  top:.1em;
   display:inline-block;
-  font-size:clamp(.28rem,.6vw,.48rem);
+  font-size:clamp(.7rem,1.2vw,1.05rem);
   line-height:1;
   letter-spacing:0;
-  transform:translateX(.02em);
+  transform:translateX(.06em);
 }
 .h-line2{font-size:clamp(.95rem,1.9vw,2.4rem);display:block;color:rgba(240,237,230,.72);font-weight:500;letter-spacing:.1em;opacity:0;animation:fadeUp .8s var(--ease) .6s forwards;margin-top:.75rem}
 .h-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-top:.75rem;opacity:0;animation:fadeUp .6s var(--ease) 1s forwards}
