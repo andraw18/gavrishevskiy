@@ -516,16 +516,3 @@ document.querySelectorAll('.a-stat-n').forEach(el=>cObs.observe(el));
 // REVEAL
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.05});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-
-// PLAYER
-let playing=false,prog2=0,pIv;
-function playT(name,artist){
-  document.getElementById('plT').textContent=name;
-  document.getElementById('plA').textContent=artist;
-  document.getElementById('player').classList.add('on');
-  playing=true;prog2=0;document.getElementById('plPlay').textContent='⏸';
-  clearInterval(pIv);
-  pIv=setInterval(()=>{if(!playing)return;prog2=Math.min(prog2+.2,100);document.getElementById('plF').style.width=prog2+'%';const s=Math.floor(prog2/100*210);document.getElementById('plTime').textContent=Math.floor(s/60)+':'+(s%60<10?'0':'')+s%60;if(prog2>=100)clearInterval(pIv);},200);
-}
-document.getElementById('plPlay').addEventListener('click',()=>{playing=!playing;document.getElementById('plPlay').textContent=playing?'⏸':'▶';});
-function closePl(){document.getElementById('player').classList.remove('on');clearInterval(pIv);playing=false;}
