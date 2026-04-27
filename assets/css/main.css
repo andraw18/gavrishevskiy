@@ -453,8 +453,8 @@ nav.stuck{background:rgba(17,17,17,.93);backdrop-filter:blur(20px);padding:1.1re
 .btn-red:hover{background:#ff3535;animation:btnShake .42s steps(2,end) both}
 .btn-ghost{font-family:'Unbounded',sans-serif;font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;border:1px solid rgba(240,237,230,.28);color:rgba(240,237,230,.72);padding:.8rem 1rem;display:flex;align-items:center;justify-content:center;text-align:center;width:100%;transition:background .2s,color .2s,border-color .2s,transform .2s}
 .btn-ghost:hover{background:rgba(240,237,230,.14);border-color:rgba(240,237,230,.36);color:var(--w);animation:btnShake .42s steps(2,end) both}
-.hero .h-words,.hero .h-line1,.hero .h-line2{font-family:'Syne',sans-serif}
-.hero .h-tag,.hero .h-year,.hero .btn-red,.hero .btn-ghost{font-family:'Syne Mono',monospace}
+.hero .h-words,.hero .h-line1,.hero .h-line2,.hero .btn-red,.hero .btn-ghost{font-family:'Syne',sans-serif}
+.hero .h-tag,.hero .h-year{font-family:'Syne Mono',monospace}
 .hero .h-desc{font-family:'Montserrat',sans-serif}
 @keyframes btnShake{
   0%{transform:translate(0,0) rotate(0deg)}
