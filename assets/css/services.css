@@ -171,6 +171,11 @@ footer{padding:1.8rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
 .f-c{font-family:'Unbounded',sans-serif;font-size:.44rem;letter-spacing:.1em;color:rgba(242,240,235,.15)}
 
 @media(max-width:900px){
+  :root{
+    --dim:rgba(242,240,235,.46);
+    --line:rgba(242,240,235,.14);
+    --line2:rgba(242,240,235,.08);
+  }
   .ph{padding:0 1.5rem;}
   .ph-h{font-size:clamp(2.1rem,10.8vw,4rem);line-height:.88;margin-bottom:.35rem;white-space:normal}
   .ph-row{flex-direction:column;gap:1rem;}

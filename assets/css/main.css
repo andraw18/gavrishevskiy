@@ -864,6 +864,12 @@ body::after{content:'';position:fixed;inset:0;z-index:9990;pointer-events:none;b
 
 /* MOBILE */
 @media(max-width:900px){
+  :root{
+    --dim:rgba(240,237,230,.46);
+    --dimx:rgba(240,237,230,.68);
+    --line:rgba(240,237,230,.11);
+    --line2:rgba(240,237,230,.07);
+  }
   nav{padding:1rem 1.5rem}nav.stuck{padding:.8rem 1.5rem}
   .n-brandline{display:none}
   .n-links a:not(.n-cta){display:none}.burger{display:flex}.n-cta{display:none}
