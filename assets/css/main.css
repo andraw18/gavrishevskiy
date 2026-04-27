@@ -23,7 +23,7 @@ body.advice-open #pageRoot{filter:blur(8px) saturate(.82) brightness(.72);transf
 #cur.big{width:56px;height:56px;background:rgba(230,50,50,.12);border:1px solid rgba(230,50,50,.4)}
 
 /* LOADER */
-#ld{position:fixed;inset:0;z-index:998;background:#0b0b0b;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:opacity .6s ease}
+#ld{position:fixed;inset:0;z-index:998;background:#040404;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:opacity .6s ease}
 #ld.out{opacity:0;pointer-events:none}
 .ld-center{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.55rem;position:relative;z-index:2}
 .ld-mark{display:block;width:clamp(56px,7vw,84px);height:auto;overflow:visible}
