@@ -107,6 +107,32 @@ nav.stuck{background:rgba(17,17,17,.93);backdrop-filter:blur(20px);padding:1.1re
 .n-cta{border:1px solid var(--red)!important;color:var(--red)!important;padding:.45rem 1.55rem!important;transition:all .2s!important}
 .n-cta:hover{background:var(--red)!important;color:var(--w)!important;animation:btnShake .42s steps(2,end) both}
 .n-right{display:flex;align-items:center;gap:.75rem;flex-shrink:0;margin-left:.75rem}
+.n-track{
+  display:flex;
+  align-items:center;
+  gap:.45rem;
+  color:rgba(240,237,230,.42);
+  font-family:'Unbounded',sans-serif;
+  font-size:.44rem;
+  line-height:1;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  user-select:none;
+}
+.n-track-ico{
+  width:12px;
+  height:12px;
+  flex:0 0 12px;
+  color:var(--red);
+  display:block;
+}
+.n-track-ico svg{
+  width:100%;
+  height:100%;
+  display:block;
+}
+.n-track-text{display:block}
 .sound-btn{
   position:fixed;
   right:2.5rem;
@@ -746,6 +772,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9990;pointer-events:none;b
 @media(max-width:900px){
   nav{padding:1rem 1.5rem}nav.stuck{padding:.8rem 1.5rem}
   .n-brandline{display:none}
+  .n-track{display:none}
   .n-links a:not(.n-cta){display:none}.burger{display:flex}.n-cta{display:none}
   .n-links{margin-left:0}
   .n-right{gap:.55rem;margin-left:.55rem}
