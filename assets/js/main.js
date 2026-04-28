@@ -28,8 +28,8 @@ if (cur) {
     const cold = Math.random() < 0.28;
     root.classList.toggle('ice-warp', cold);
     root.classList.toggle('red-warp', !cold);
-    window.setTimeout(() => root.classList.remove('red-warp'), 1150);
-    window.setTimeout(() => root.classList.remove('ice-warp'), 1150);
+    window.setTimeout(() => root.classList.remove('red-warp'), 950);
+    window.setTimeout(() => root.classList.remove('ice-warp'), 950);
   };
 
   window.setTimeout(triggerWarp, 3500);

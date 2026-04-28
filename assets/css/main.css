@@ -5,9 +5,14 @@ html{scroll-behavior:smooth}
 body{background:#0b0b0b;color:#f0ede6;font-family:'Unbounded',sans-serif;cursor:none;overflow-x:hidden;hyphens:manual;word-break:keep-all;overflow-wrap:normal}
 a{color:inherit;text-decoration:none}
 :root{--bg:#0b0b0b;--bg2:#141414;--w:#f0ede6;--dim:rgba(240,237,230,.3);--dimx:rgba(240,237,230,.54);--line:rgba(240,237,230,.075);--line2:rgba(240,237,230,.04);--red:#e63232;--ease:cubic-bezier(.16,1,.3,1)}
-#pageRoot{position:relative;z-index:1;will-change:filter,transform;transition:filter .28s var(--ease),transform .28s var(--ease)}
-#pageRoot.red-warp{filter:url(#pageRedDistort) saturate(1.15) contrast(1.04) hue-rotate(-8deg)}
-#pageRoot.ice-warp{filter:url(#pageIceDistort) saturate(1.16) contrast(1.05) hue-rotate(188deg)}
+#pageRoot{
+  position:relative;
+  z-index:1;
+  will-change:filter,transform;
+  transition:filter .28s var(--ease),transform .28s var(--ease);
+}
+#pageRoot.red-warp{filter:saturate(1.16) contrast(1.05) hue-rotate(-10deg) brightness(1.01)}
+#pageRoot.ice-warp{filter:saturate(1.14) contrast(1.03) hue-rotate(185deg) brightness(1.01)}
 body.advice-open #pageRoot{filter:blur(8px) saturate(.82) brightness(.72);transform:scale(.993);pointer-events:none;user-select:none}
 
 @font-face{
