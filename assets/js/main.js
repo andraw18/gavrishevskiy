@@ -6,7 +6,8 @@ let my = window.innerHeight * 0.5;
 if (cur) {
   document.addEventListener('mousemove', e => {
     mx=e.clientX; my=e.clientY;
-    cur.style.left=mx+'px'; cur.style.top=my+'px';
+    cur.style.setProperty('--mx', mx+'px');
+    cur.style.setProperty('--my', my+'px');
   });
   document.querySelectorAll('a,button,.svc-row,.bc,.tr-row').forEach(el => {
     el.addEventListener('mouseenter', () => cur.classList.add('big'));

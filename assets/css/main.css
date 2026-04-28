@@ -96,7 +96,15 @@ body.advice-open #pageRoot{filter:blur(8px) saturate(.82) brightness(.72);transf
 }
 
 /* CURSOR */
-#cur{width:8px;height:8px;border-radius:50%;background:var(--w);position:fixed;top:0;left:0;z-index:9999;pointer-events:none;transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease),background .2s;mix-blend-mode:difference}
+#cur{
+  width:8px;height:8px;border-radius:50%;background:var(--w);
+  position:fixed;top:0;left:0;z-index:9999;pointer-events:none;
+  --mx:50vw;--my:50vh;
+  transform:translate3d(var(--mx),var(--my),0) translate(-50%,-50%);
+  transition:width .25s var(--ease),height .25s var(--ease),background .2s;
+  mix-blend-mode:difference;
+  will-change:transform,width,height,background;
+}
 #cur.big{width:56px;height:56px;background:rgba(230,50,50,.12);border:1px solid rgba(230,50,50,.4)}
 
 /* LOADER */
