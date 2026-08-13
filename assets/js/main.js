@@ -507,6 +507,136 @@ if (cur) {
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('stuck',scrollY>60),{passive:true});
 
 // MOBILE
+const artistsToggle = document.getElementById('artistsToggle');
+const allArtistsList = document.getElementById('allArtistsList');
+
+if (artistsToggle && allArtistsList) {
+  artistsToggle.addEventListener('click', () => {
+    const isOpen = artistsToggle.getAttribute('aria-expanded') !== 'true';
+    artistsToggle.setAttribute('aria-expanded', String(isOpen));
+    allArtistsList.setAttribute('aria-hidden', String(!isOpen));
+    allArtistsList.inert = !isOpen;
+    allArtistsList.classList.toggle('open', isOpen);
+    artistsToggle.querySelector('span:first-child').textContent = isOpen ? 'Скрыть артистов' : 'Все артисты';
+  });
+}
+
+const homeEquipmentViewport = document.querySelector('[data-home-equipment-viewport]');
+const homeEquipmentPrevious = document.querySelector('[data-home-equipment-prev]');
+const homeEquipmentNext = document.querySelector('[data-home-equipment-next]');
+
+if (homeEquipmentViewport && homeEquipmentPrevious && homeEquipmentNext) {
+  const moveHomeEquipment = (direction) => {
+    const card = homeEquipmentViewport.querySelector('.home-equipment-card');
+    const amount = card ? card.getBoundingClientRect().width + 13 : homeEquipmentViewport.clientWidth * .8;
+    homeEquipmentViewport.scrollBy({ left: amount * direction, behavior: 'smooth' });
+  };
+  homeEquipmentPrevious.addEventListener('click', () => moveHomeEquipment(-1));
+  homeEquipmentNext.addEventListener('click', () => moveHomeEquipment(1));
+  homeEquipmentViewport.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') moveHomeEquipment(-1);
+    if (event.key === 'ArrowRight') moveHomeEquipment(1);
+  });
+}
+
+const tracksToggle = document.getElementById('tracksToggle');
+const tracksList = document.getElementById('trList');
+const moreTracks = [
+  {n:11,name:"Лошадиная сила",artist:"КОФЕБУКЕТЫ",url:"https://music.yandex.ru/album/41519816/track/150120876?utm_source=web&utm_medium=copy_link"},
+  {n:12,name:"Я начинаю свой бой",artist:"КОФЕБУКЕТЫ",url:"https://music.yandex.ru/album/41541105/track/150166602?utm_source=web&utm_medium=copy_link"},
+  {n:13,name:"Танцуем в 80х ремикс",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/album/42408877/track/152151468?utm_source=web&utm_medium=copy_link"},
+  {n:14,name:"В забайкалье",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/album/41810940/track/150792874?utm_source=web&utm_medium=copy_link"},
+  {n:15,name:"Больше чем люблю",artist:"SLAVA CRYSTALL, Anvir",url:"https://music.yandex.ru/album/40106281/track/146991827"},
+  {n:16,name:"Ты не придёшь",artist:"Илья Тимошек, Андрей Бурдуковский",url:"https://music.yandex.ru/album/37249014/track/140635985?utm_source=web&utm_medium=copy_link"},
+  {n:17,name:"Om Namo",artist:"ANDRAW",url:"https://music.yandex.ru/album/33989866/track/132865056?utm_source=web&utm_medium=copy_link"},
+  {n:18,name:"Ты не знаешь",artist:"Пчела",url:"https://music.yandex.ru/album/34396817/track/133900422"},
+  {n:19,name:"Выбирай себя",artist:"LEMU",url:"https://music.yandex.ru/album/41487745/track/150049750?utm_source=web&utm_medium=copy_link"},
+  {n:20,name:"Стены слышат",artist:"LEMU",url:"https://music.yandex.ru/album/38211686/track/142895697"},
+  {n:21,name:"Огонь Любви",artist:"Восток",url:"https://music.yandex.ru/album/40895208/track/137960159?utm_source=web&utm_medium=copy_link"},
+  {n:22,name:"Птицы",artist:"Черемуха",url:"https://disk.yandex.ru/d/hysRVHPnHiyBAQ"},
+  {n:23,name:"Твоя Красота",artist:"Гэсэр",url:"https://disk.yandex.ru/d/Jgk-qaJpdA06mQ"},
+  {n:24,name:"Без ответа",artist:"Андрей Бурдуковский, Alexandr Pierce",url:"https://music.yandex.ru/album/38648670/track/143992790?utm_source=web&utm_medium=copy_link"},
+  {n:25,name:"Любви пули",artist:"КОФЕБУКЕТЫ",url:"https://music.yandex.ru/album/37393672/track/140964516?utm_source=web&utm_medium=copy_link"},
+  {n:26,name:"Атом",artist:"MILANA BURMISS",url:"https://music.yandex.ru/album/41807803/track/150781604"},
+  {n:27,name:"Магнит",artist:"Алина Дерябина",url:"https://music.yandex.ru/album/35009152/track/135259784"},
+  {n:28,name:"Лети (Концертная версия)",artist:"Mishel Dar, Василиса Лёвшина",url:"https://disk.yandex.ru/d/Sl3Wsfsd60nmHg"},
+  {n:29,name:"С гитарой у костра",artist:"Андрей Бурдуковский, Дмитрий Гревцев",url:"https://music.yandex.ru/album/36222698/track/138189730?utm_source=web&utm_medium=copy_link"},
+  {n:30,name:"Танцуем в 80х",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/album/33577379/track/131857754?utm_source=web&utm_medium=copy_link"},
+  {n:31,name:"Время Рождества",artist:"Ольга Сиу",url:"https://music.yandex.ru/album/34756337/track/134749744"},
+  {n:32,name:"Любовь-морковь",artist:"КОФЕБУКЕТЫ",url:"https://music.yandex.ru/album/37862756/track/142035909?utm_source=web&utm_medium=copy_link"},
+  {n:33,name:"Не время отступать",artist:"КОФЕБУКЕТЫ",url:"https://music.yandex.ru/album/37848429/track/141983282?utm_source=web&utm_medium=copy_link"},
+  {n:34,name:"Мир другой",artist:"Восток",url:"https://music.yandex.ru/album/40895208/track/147374285?utm_source=web&utm_medium=copy_link"},
+  {n:35,name:"Moon",artist:"ANDRAW",url:"https://music.yandex.ru/album/37918402/track/142175277?utm_source=web&utm_medium=copy_link"},
+  {n:36,name:"Приходи",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/album/34401640/track/133909730"},
+  {n:37,name:"Гори оно всё огнём",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/artist/17483440/tracks"},
+  {n:38,name:"Мой вайб",artist:"LEMU",url:"https://music.yandex.ru/album/35950303/track/136058295"},
+  {n:39,name:"Магия",artist:"LEMU",url:"https://music.yandex.ru/album/35835794/track/137240773"},
+  {n:40,name:"Пока мы живы (Acoustic)",artist:"LEMU",url:"https://music.yandex.ru/album/36130010/track/129675143"},
+  {n:41,name:"Мир в котором мир",artist:"LEMU",url:"https://music.yandex.ru/album/28116958/track/119043922"},
+  {n:42,name:"Женщины ждут и верят",artist:"Сёстры Селезнёвы",url:"https://music.yandex.ru/album/35551010/track/136457267"},
+  {n:43,name:"Рыбка",artist:"Сёстры Селезнёвы",url:"https://music.yandex.ru/album/34733737/track/134696035"},
+  {n:44,name:"Времена кассет",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/album/41564556/track/150216402?utm_source=web&utm_medium=copy_link"},
+  {n:45,name:"Без вас, девчонки",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/album/40944649/track/148829652?utm_source=web&utm_medium=copy_link"},
+  {n:46,name:"Где же ты теперь, любовь",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/album/38152243/track/142744641?utm_source=web&utm_medium=copy_link"},
+  {n:47,name:"Ecstatic",artist:"ANDRAW",url:"https://music.yandex.ru/album/35287266/track/135861906"},
+  {n:48,name:"Unda Fay",artist:"ANDRAW",url:"https://music.yandex.ru/album/35287266/track/135861906"},
+  {n:49,name:"Батюшка Владимир",artist:"Сёстры Селезнёвы",url:"https://music.yandex.ru/album/34635940/track/134461995"},
+  {n:50,name:"Сладко в облака",artist:"Сёстры Селезнёвы",url:"https://music.yandex.ru/album/35230945/track/135724290"},
+  {n:51,name:"Wrigo",artist:"Elfguitar",url:"https://music.yandex.ru/album/37270532/track/140681241"},
+  {n:52,name:"In Vivo",artist:"Elfguitar",url:"https://music.yandex.ru/album/36668018/track/139260118"},
+  {n:53,name:"Gravitas",artist:"Elfguitar",url:"https://music.yandex.ru/album/35434817/track/136197422"},
+  {n:54,name:"Adventus",artist:"Elfguitar",url:"https://music.yandex.ru/album/30901131/track/125262842"},
+  {n:55,name:"Зачем тебе розы",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/album/37127168/track/140352658"},
+  {n:56,name:"Дождь идёт по крыше",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/album/34152523/track/133294123"},
+  {n:57,name:"Замуж по любви",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/album/34061423/track/133039325"},
+  {n:58,name:"Последний поцелуй",artist:"Андрей Бурдуковский, Bixame",url:"https://music.yandex.ru/album/40021150/track/146812715"},
+  {n:59,name:"Иллюзия чувств",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/album/35071217/track/135391316"},
+  {n:60,name:"Мы больше не дети",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/album/36312192/track/138413686"},
+  {n:61,name:"Километры",artist:"Андрей Бурдуковский, Alexandr Pierce",url:"https://music.yandex.ru/album/40306572/track/147414265"},
+  {n:62,name:"Говоришь прощай",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/album/27960874/track/118693844"},
+  {n:63,name:"Шатуновая",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/album/33964460/track/132805689"},
+  {n:64,name:"Не залатать",artist:"Андрей Бурдуковский, Дмитрий Гревцев",url:"https://music.yandex.ru/album/36387823/track/138590597"},
+  {n:65,name:"Последний звонок",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/album/31279290/track/126118900"},
+  {n:66,name:"Проложу маршруты",artist:"Андрей Бурдуковский",url:"https://music.yandex.ru/album/27634562/track/117960754"},
+  {n:67,name:"Прошлый разговор",artist:"Андрей Бурдуковский, Дмитрий Гревцев",url:"https://music.yandex.ru/album/28984342/track/121011706"},
+  {n:68,name:"Когда-нибудь",artist:"LEMU",url:"https://music.yandex.ru/album/30290124/track/123882251"},
+  {n:69,name:"Твоё имя",artist:"LEMU",url:"https://music.yandex.ru/album/30290124/track/123882251"},
+  {n:70,name:"Дороги",artist:"LEMU",url:"https://music.yandex.ru/album/30290124/track/123882251"},
+  {n:71,name:"Metamorphose",artist:"ANDRAW",url:"https://music.yandex.ru/album/35287266/track/135861906"},
+  {n:72,name:"Manvantara",artist:"ANDRAW",url:"https://music.yandex.ru/album/30849175/track/125148916"},
+  {n:73,name:"Cosmic Voyager",artist:"ANDRAW",url:"https://music.yandex.ru/album/37172680/track/140457429"},
+  {n:74,name:"Сияю",artist:"КОФЕБУКЕТЫ",url:"https://music.yandex.ru/album/37272572/track/140685842"}
+];
+let loadedTracks = 0;
+
+function updateTracksButton() {
+  const remaining = moreTracks.length - loadedTracks;
+  if (!remaining) {
+    tracksToggle.closest('.tr-more').hidden = true;
+    return;
+  }
+  tracksToggle.textContent = `// ЕЩЁ ${Math.min(10, remaining)} ТРЕКОВ ↓`;
+}
+
+if (tracksToggle && tracksList) {
+  tracksToggle.addEventListener('click', () => {
+    const batch = moreTracks.slice(loadedTracks, loadedTracks + 10);
+    batch.forEach(track => {
+      const number = String(track.n).padStart(2, '0');
+      const service = track.url.includes('disk.yandex.ru') ? 'Яндекс Диск' : 'Яндекс Музыка';
+      const row = document.createElement('a');
+      row.className = 'tr-row tr-row-new';
+      row.href = track.url;
+      row.target = '_blank';
+      row.rel = 'noopener noreferrer';
+      row.innerHTML = `<div class="tr-n-wrap"><span class="tr-n">${number}</span><span class="tr-play">↗</span></div><div class="tr-info"><div class="tr-cover">${number}</div><div><div class="tr-name">${track.name}</div><div class="tr-artist">${track.artist}</div></div></div><span class="tr-service">${service}</span><span class="tr-dur">↗</span>`;
+      tracksList.appendChild(row);
+    });
+    loadedTracks += batch.length;
+    updateTracksButton();
+  });
+}
+
 let mobOpen=false;
 function toggleMob(){
   mobOpen=!mobOpen;
@@ -515,6 +645,8 @@ function toggleMob(){
   if(mobNav) mobNav.classList.toggle('open',mobOpen);
   if(mobNav) mobNav.setAttribute('aria-hidden', mobOpen ? 'false' : 'true');
   if(burger) burger.classList.toggle('open',mobOpen);
+  if(burger) burger.setAttribute('aria-expanded', String(mobOpen));
+  if(burger) burger.setAttribute('aria-label', mobOpen ? 'Закрыть меню' : 'Открыть меню');
   document.body.style.overflow=mobOpen?'hidden':'';
 }
 function closeMob(){
@@ -524,8 +656,14 @@ function closeMob(){
   if(mobNav) mobNav.classList.remove('open');
   if(mobNav) mobNav.setAttribute('aria-hidden', 'true');
   if(burger) burger.classList.remove('open');
+  if(burger) burger.setAttribute('aria-expanded', 'false');
+  if(burger) burger.setAttribute('aria-label', 'Открыть меню');
   document.body.style.overflow='';
 }
+
+document.addEventListener('keydown',(event)=>{
+  if(event.key==='Escape' && mobOpen) closeMob();
+});
 
 // WAVEFORM
 const wf7=document.getElementById('wf7');

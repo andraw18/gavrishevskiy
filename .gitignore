@@ -1,0 +1,6 @@
+.DS_Store
+.serena/
+*.zip
+*-client/
+*-clean/
+assets/media/video/*.mov

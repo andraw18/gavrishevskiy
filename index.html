@@ -68,9 +68,9 @@
   </a>
   <div class="n-brandline">делаем из людей артистов</div>
   <div class="n-links">
-    <a href="pages/services.html">Услуги</a>
-    <a href="#artists">Артисты</a>
-    <a href="#reviews">Отзывы</a>
+    <a href="pages/label.html">Лейбл</a>
+    <a href="pages/services.html">Продакшн</a>
+    <a href="pages/studio.html">Студия</a>
     <a href="#contact" class="n-cta">Связаться</a>
   </div>
   <div class="n-right">
@@ -84,14 +84,14 @@
     <button class="advice-mini" id="adviceBtn" type="button" aria-label="Открыть советы для начинающих артистов">
       <span class="advice-mini-text">Начинающий артист?<br>есть совет</span>
     </button>
-    <button class="burger" id="burger" onclick="toggleMob()"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" type="button" onclick="toggleMob()" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobNav"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <div class="mob-nav" id="mobNav" aria-hidden="true">
-  <a href="pages/services.html" onclick="closeMob()">Услуги</a>
-  <a href="#artists" onclick="closeMob()">Артисты</a>
-  <a href="#reviews" onclick="closeMob()">Отзывы</a>
+  <a href="pages/label.html" onclick="closeMob()">Лейбл</a>
+  <a href="pages/services.html" onclick="closeMob()">Продакшн</a>
+  <a href="pages/studio.html" onclick="closeMob()">Студия</a>
   <a href="#contact" onclick="closeMob()">Связаться</a>
 </div>
 
@@ -115,22 +115,24 @@
       <!-- TICKER -->
       <div class="ticker hero-ticker">
         <div class="ticker-inner">
-          <div class="t-item"><img src="assets/media/images/lola.jpg" alt="LOLA"></div>
-          <div class="t-item"><img src="assets/media/images/andraw.jpg" alt="ANDRAW"></div>
-          <div class="t-item"><span>APRIORY</span></div>
-          <div class="t-item"><span>DAFA</span></div>
-          <div class="t-item"><img src="assets/media/images/lola.jpg" alt="LOLA"></div>
-          <div class="t-item"><img src="assets/media/images/andraw.jpg" alt="ANDRAW"></div>
-          <div class="t-item"><span>APRIORY</span></div>
-          <div class="t-item"><span>DAFA</span></div>
-          <div class="t-item"><img src="assets/media/images/lola.jpg" alt="LOLA"></div>
-          <div class="t-item"><img src="assets/media/images/andraw.jpg" alt="ANDRAW"></div>
-          <div class="t-item"><span>APRIORY</span></div>
-          <div class="t-item"><span>DAFA</span></div>
-          <div class="t-item"><img src="assets/media/images/lola.jpg" alt="LOLA"></div>
-          <div class="t-item"><img src="assets/media/images/andraw.jpg" alt="ANDRAW"></div>
-          <div class="t-item"><span>APRIORY</span></div>
-          <div class="t-item"><span>DAFA</span></div>
+          <div class="t-item"><span>АНДРЕЙ БУРДУКОВСКИЙ</span></div>
+          <div class="t-item"><span>ПЧЕЛА</span></div>
+          <div class="t-item"><span>LEMU</span></div>
+          <div class="t-item"><span>ANDRAW</span></div>
+          <div class="t-item"><span>СЁСТРЫ СЕЛЕЗНЁВЫ</span></div>
+          <div class="t-item"><span>КОФЕБУКЕТЫ</span></div>
+          <div class="t-item"><span>ОТБЛЕСК ВИТРАЖЕЙ</span></div>
+          <div class="t-item"><span>ИЛЬЯ ТИМОШЕК</span></div>
+          <div class="t-item"><span>MARC NEWY</span></div>
+          <div class="t-item"><span>АНДРЕЙ БУРДУКОВСКИЙ</span></div>
+          <div class="t-item"><span>ПЧЕЛА</span></div>
+          <div class="t-item"><span>LEMU</span></div>
+          <div class="t-item"><span>ANDRAW</span></div>
+          <div class="t-item"><span>СЁСТРЫ СЕЛЕЗНЁВЫ</span></div>
+          <div class="t-item"><span>КОФЕБУКЕТЫ</span></div>
+          <div class="t-item"><span>ОТБЛЕСК ВИТРАЖЕЙ</span></div>
+          <div class="t-item"><span>ИЛЬЯ ТИМОШЕК</span></div>
+          <div class="t-item"><span>MARC NEWY</span></div>
         </div>
       </div>
       <div class="h-actions">
@@ -202,49 +204,91 @@
 
 <!-- ARTISTS -->
 <section id="artists" class="artists rv">
-  <div class="sec-head"><h2 class="sec-h">С кем мы работали</h2><div class="sec-tag">// 47 артистов · 12M+ прослушиваний</div></div>
+  <div class="sec-head"><h2 class="sec-h">Артисты</h2><div class="sec-tag">// 17 артистов · данные Яндекс Музыки</div></div>
   <div class="bento">
-    <div class="bc bc1" aria-label="Артист 1" style="background-image:url('assets/media/images/artists/artist-1.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+    <div class="bc bc1" aria-label="Андрей Бурдуковский" style="background-image:url('https://avatars.yandex.net/get-music-content/14728505/8d8335f0.p.17483440/600x600');background-size:cover;background-position:center;background-repeat:no-repeat">
       <div class="bc-glow"></div><div class="bc-eq"><div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div></div><div class="bc-ov"></div>
-      <div class="bc-body"><span class="bc-name">АРТИСТ 1</span><div class="bc-genre">Жанр · Поджанр</div><div class="bc-plays"><strong>X.XM</strong> прослушиваний ЯМ</div><div class="bc-actions"><a class="bc-action" href="https://band.link/" target="_blank" rel="noopener noreferrer">BandLink</a><a class="bc-action" href="https://music.yandex.ru/" target="_blank" rel="noopener noreferrer">Я.Музыка</a></div></div>
+      <div class="bc-body"><span class="bc-name">Андрей Бурдуковский</span><div class="bc-genre">Артист · Автор песен</div><div class="bc-plays"><strong>200–300K</strong> слушателей ЯМ</div><div class="bc-actions"><a class="bc-action" href="https://music.yandex.ru/artist/17483440" target="_blank" rel="noopener noreferrer">Я.Музыка</a></div></div>
     </div>
-    <div class="bc bc2" aria-label="Артист 2" style="background-image:url('assets/media/images/artists/artist-2.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+    <div class="bc bc2" aria-label="Пчела" style="background-image:url('https://avatars.yandex.net/get-music-content/16334817/25da6088.p.18939486/600x600');background-size:cover;background-position:center;background-repeat:no-repeat">
       <div class="bc-glow"></div><div class="bc-ov"></div>
-      <div class="bc-body"><span class="bc-name">АРТИСТ 2</span><div class="bc-genre">Жанр · Поджанр</div><div class="bc-plays"><strong>XXX K</strong> прослушиваний ЯМ</div><div class="bc-actions"><a class="bc-action" href="https://band.link/" target="_blank" rel="noopener noreferrer">BandLink</a><a class="bc-action" href="https://music.yandex.ru/" target="_blank" rel="noopener noreferrer">Я.Музыка</a></div></div>
+      <div class="bc-body"><span class="bc-name">Пчела</span><div class="bc-genre">Артист</div><div class="bc-plays"><strong>2.5M</strong> слушателей ЯМ</div><div class="bc-actions"><a class="bc-action" href="https://music.yandex.ru/artist/18939486" target="_blank" rel="noopener noreferrer">Я.Музыка</a></div></div>
     </div>
-    <div class="bc bc3" aria-label="Артист 3" style="background-image:url('assets/media/images/artists/artist-3.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+    <div class="bc bc3" aria-label="LEMU" style="background-image:url('https://avatars.yandex.net/get-music-content/17649213/bbaa42ff.p.4060641/600x600');background-size:cover;background-position:center;background-repeat:no-repeat">
       <div class="bc-glow"></div><div class="bc-eq"><div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div></div><div class="bc-ov"></div>
-      <div class="bc-body"><span class="bc-name">АРТИСТ 3</span><div class="bc-genre">Жанр · Поджанр</div><div class="bc-plays"><strong>X.XM</strong> прослушиваний ЯМ</div><div class="bc-actions"><a class="bc-action" href="https://band.link/" target="_blank" rel="noopener noreferrer">BandLink</a><a class="bc-action" href="https://music.yandex.ru/" target="_blank" rel="noopener noreferrer">Я.Музыка</a></div></div>
+      <div class="bc-body"><span class="bc-name">LEMU</span><div class="bc-genre">Артист</div><div class="bc-plays"><strong>10–20K</strong> слушателей ЯМ</div><div class="bc-actions"><a class="bc-action" href="https://music.yandex.ru/artist/4060641" target="_blank" rel="noopener noreferrer">Я.Музыка</a></div></div>
     </div>
-    <div class="bc bc4" aria-label="Артист 4" style="background-image:url('assets/media/images/artists/artist-4.png');background-size:cover;background-position:center;background-repeat:no-repeat">
+    <div class="bc bc4" aria-label="ANDRAW" style="background-image:url('https://avatars.yandex.net/get-music-content/15499524/9834734f.p.12118164/600x600');background-size:cover;background-position:center;background-repeat:no-repeat">
       <div class="bc-glow"></div><div class="bc-ov"></div>
-      <div class="bc-body"><span class="bc-name">АРТИСТ 4</span><div class="bc-genre">Жанр</div><div class="bc-plays"><strong>XXX K</strong> прослушиваний ЯМ</div><div class="bc-actions"><a class="bc-action" href="https://band.link/" target="_blank" rel="noopener noreferrer">BandLink</a><a class="bc-action" href="https://music.yandex.ru/" target="_blank" rel="noopener noreferrer">Я.Музыка</a></div></div>
+      <div class="bc-body"><span class="bc-name">ANDRAW</span><div class="bc-genre">Electronic · Producer</div><div class="bc-plays"><strong>20–50K</strong> слушателей ЯМ</div><div class="bc-actions"><a class="bc-action" href="https://music.yandex.ru/artist/12118164" target="_blank" rel="noopener noreferrer">Я.Музыка</a></div></div>
     </div>
-    <div class="bc bc5" aria-label="Артист 5" style="background-image:url('assets/media/images/artists/artist-5.png');background-size:cover;background-position:center;background-repeat:no-repeat">
+    <div class="bc bc5" aria-label="Сёстры Селезнёвы" style="background-image:url('https://avatars.yandex.net/get-music-content/14082060/2f1fb31b.p.23046613/600x600');background-size:cover;background-position:center;background-repeat:no-repeat">
       <div class="bc-glow"></div><div class="bc-ov"></div>
-      <div class="bc-body"><span class="bc-name">АРТИСТ 5</span><div class="bc-genre">Жанр</div><div class="bc-plays"><strong>X.XM</strong> прослушиваний ЯМ</div><div class="bc-actions"><a class="bc-action" href="https://band.link/" target="_blank" rel="noopener noreferrer">BandLink</a><a class="bc-action" href="https://music.yandex.ru/" target="_blank" rel="noopener noreferrer">Я.Музыка</a></div></div>
+      <div class="bc-body"><span class="bc-name">Сёстры Селезнёвы</span><div class="bc-genre">Вокальный проект</div><div class="bc-plays"><strong>5–10K</strong> слушателей ЯМ</div><div class="bc-actions"><a class="bc-action" href="https://music.yandex.ru/artist/23046613" target="_blank" rel="noopener noreferrer">Я.Музыка</a></div></div>
     </div>
-    <div class="bc bc6" aria-label="Артист 6">
+    <div class="bc bc6" aria-label="КОФЕБУКЕТЫ" style="background-image:url('https://avatars.yandex.net/get-music-content/12554677/107b1870.p.23030315/600x600');background-size:cover;background-position:center;background-repeat:no-repeat">
       <div class="bc-glow"></div><div class="bc-ov"></div>
-      <div class="bc-body"><span class="bc-name">АРТИСТ 6</span><div class="bc-genre">Жанр</div><div class="bc-plays"><strong>XXX K</strong> прослушиваний ЯМ</div><div class="bc-actions"><a class="bc-action" href="https://band.link/" target="_blank" rel="noopener noreferrer">BandLink</a><a class="bc-action" href="https://music.yandex.ru/" target="_blank" rel="noopener noreferrer">Я.Музыка</a></div></div>
+      <div class="bc-body"><span class="bc-name">КОФЕБУКЕТЫ</span><div class="bc-genre">Музыкальный проект</div><div class="bc-plays"><strong>100–3K</strong> слушателей ЯМ</div><div class="bc-actions"><a class="bc-action" href="https://music.yandex.ru/artist/23030315" target="_blank" rel="noopener noreferrer">Я.Музыка</a></div></div>
     </div>
-    <a class="bc bc7" href="pages/services.html" aria-label="Studio A">
-      <div class="bc7-lbl">STUDIO A</div><div class="bc7-wf" id="wf7"></div><div class="bc7-lbl">LIVE SESSION</div>
+    <a class="bc bc7" href="https://music.yandex.ru/artist/24499449" target="_blank" rel="noopener noreferrer" aria-label="Отблеск витражей в Яндекс Музыке" style="background-image:url('https://avatars.yandex.net/get-music-content/15018579/6723aefe.a.37545756-1/m1000x1000');background-size:cover;background-position:center;background-repeat:no-repeat">
+      <div class="bc-glow"></div><div class="bc-eq"><div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div></div><div class="bc-ov"></div>
+      <div class="bc-body"><span class="bc-name">Отблеск витражей</span><div class="bc-genre">Артист</div><div class="bc-plays"><strong>100–1K</strong> слушателей ЯМ</div><div class="bc-actions"><span class="bc-action">Я.Музыка ↗</span></div></div>
     </a>
+    <a class="bc bc8" href="https://music.yandex.ru/artist/9786349" target="_blank" rel="noopener noreferrer" aria-label="Илья Тимошек в Яндекс Музыке" style="background-image:url('https://avatars.yandex.net/get-music-content/14304155/621506c4.p.9786349/m1000x1000');background-size:cover;background-position:center;background-repeat:no-repeat">
+      <div class="bc-glow"></div><div class="bc-eq"><div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div></div><div class="bc-ov"></div>
+      <div class="bc-body"><span class="bc-name">Илья Тимошек</span><div class="bc-genre">Артист</div><div class="bc-plays"><strong>200–300K</strong> слушателей ЯМ</div><div class="bc-actions"><span class="bc-action">Я.Музыка ↗</span></div></div>
+    </a>
+    <a class="bc bc9" href="https://music.yandex.ru/artist/17703646" target="_blank" rel="noopener noreferrer" aria-label="Marc Newy в Яндекс Музыке" style="background-image:url('https://avatars.yandex.net/get-music-content/15142616/20d21ba7.p.17703646/m1000x1000');background-size:cover;background-position:center;background-repeat:no-repeat">
+      <div class="bc-glow"></div><div class="bc-eq"><div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div></div><div class="bc-ov"></div>
+      <div class="bc-body"><span class="bc-name">Marc Newy</span><div class="bc-genre">Артист</div><div class="bc-plays"><strong>30–1K</strong> слушателей ЯМ</div><div class="bc-actions"><span class="bc-action">Я.Музыка ↗</span></div></div>
+    </a>
+  </div>
+  <button class="artists-toggle" id="artistsToggle" type="button" aria-expanded="false" aria-controls="allArtistsList"><span>Все артисты</span><span aria-hidden="true">+</span></button>
+  <div class="artists-list" id="allArtistsList" aria-hidden="true" inert>
+    <a class="artist-row" href="https://music.yandex.ru/artist/19876036" target="_blank" rel="noopener noreferrer"><span class="artist-row-no">10</span><strong>Elfguitar</strong><span>50–100 слушателей</span><i>↗</i></a>
+    <a class="artist-row" href="https://music.yandex.ru/artist/4428734" target="_blank" rel="noopener noreferrer"><span class="artist-row-no">11</span><strong>Константин Кинст</strong><span>1–5K слушателей</span><i>↗</i></a>
+    <a class="artist-row" href="https://music.yandex.ru/artist/10054501" target="_blank" rel="noopener noreferrer"><span class="artist-row-no">12</span><strong>Валерия Охотницкая</strong><span>3–5K слушателей</span><i>↗</i></a>
+    <a class="artist-row" href="https://music.yandex.ru/artist/22224767" target="_blank" rel="noopener noreferrer"><span class="artist-row-no">13</span><strong>Алина Бондарева</strong><span>30–50 слушателей</span><i>↗</i></a>
+    <a class="artist-row" href="https://music.yandex.ru/artist/19479622" target="_blank" rel="noopener noreferrer"><span class="artist-row-no">14</span><strong>Александра Колесникова</strong><span>30–50 слушателей</span><i>↗</i></a>
+    <a class="artist-row" href="https://music.yandex.ru/artist/23638609" target="_blank" rel="noopener noreferrer"><span class="artist-row-no">15</span><strong>Алина Дерябина</strong><span>5 слушателей</span><i>↗</i></a>
+    <a class="artist-row" href="https://music.yandex.ru/artist/25280330" target="_blank" rel="noopener noreferrer"><span class="artist-row-no">16</span><strong>SLAVA CRYSTALL</strong><span>10 слушателей</span><i>↗</i></a>
+    <a class="artist-row" href="https://music.yandex.ru/artist/17368946" target="_blank" rel="noopener noreferrer"><span class="artist-row-no">17</span><strong>Anvir</strong><span>30 слушателей</span><i>↗</i></a>
   </div>
 </section>
 
 <!-- TRACKS -->
 <section id="tracks" class="tracks rv">
-  <div class="tr-head"><h3>Избранные треки</h3><a href="#" class="tr-link">Все треки (100+) →</a></div>
+  <div class="tr-head"><h3>Избранные треки</h3><span class="tr-link">74 релиза из портфолио</span></div>
   <div id="trList">
-    <div class="tr-row" onclick="playT('Название трека','Артист 1')"><div class="tr-n-wrap"><span class="tr-n">01</span><span class="tr-play">▶</span></div><div class="tr-info"><div class="tr-cover"></div><div><div class="tr-name">Название трека</div><div class="tr-artist">Артист 1</div></div></div><span class="tr-tag">Жанр</span><span class="tr-plays">XXX K</span><span class="tr-dur">3:24</span></div>
-    <div class="tr-row" onclick="playT('Название трека 2','Артист 2')"><div class="tr-n-wrap"><span class="tr-n">02</span><span class="tr-play">▶</span></div><div class="tr-info"><div class="tr-cover"></div><div><div class="tr-name">Название трека 2</div><div class="tr-artist">Артист 2</div></div></div><span class="tr-tag">Жанр</span><span class="tr-plays">XXX K</span><span class="tr-dur">2:58</span></div>
-    <div class="tr-row" onclick="playT('Название трека 3','Артист 3')"><div class="tr-n-wrap"><span class="tr-n">03</span><span class="tr-play">▶</span></div><div class="tr-info"><div class="tr-cover"></div><div><div class="tr-name">Название трека 3</div><div class="tr-artist">Артист 3</div></div></div><span class="tr-tag">Жанр</span><span class="tr-plays">XXX K</span><span class="tr-dur">3:40</span></div>
-    <div class="tr-row" onclick="playT('Название трека 4','Артист 4')"><div class="tr-n-wrap"><span class="tr-n">04</span><span class="tr-play">▶</span></div><div class="tr-info"><div class="tr-cover"></div><div><div class="tr-name">Название трека 4</div><div class="tr-artist">Артист 4</div></div></div><span class="tr-tag">Жанр</span><span class="tr-plays">XXX K</span><span class="tr-dur">2:44</span></div>
-    <div class="tr-row" onclick="playT('Название трека 5','Артист 5')"><div class="tr-n-wrap"><span class="tr-n">05</span><span class="tr-play">▶</span></div><div class="tr-info"><div class="tr-cover"></div><div><div class="tr-name">Название трека 5</div><div class="tr-artist">Артист 5</div></div></div><span class="tr-tag">Жанр</span><span class="tr-plays">XXX K</span><span class="tr-dur">3:11</span></div>
+    <a class="tr-row" href="https://music.yandex.ru/album/33772341/track/132339515?utm_source=web&amp;utm_medium=copy_link" target="_blank" rel="noopener noreferrer"><div class="tr-n-wrap"><span class="tr-n">01</span><span class="tr-play">↗</span></div><div class="tr-info"><div class="tr-cover">01</div><div><div class="tr-name">На стиле</div><div class="tr-artist">Пчела</div></div></div><span class="tr-service">Яндекс Музыка</span><span class="tr-dur">↗</span></a>
+    <a class="tr-row" href="https://music.yandex.ru/album/38712667/track/144138879?utm_source=web&amp;utm_medium=copy_link" target="_blank" rel="noopener noreferrer"><div class="tr-n-wrap"><span class="tr-n">02</span><span class="tr-play">↗</span></div><div class="tr-info"><div class="tr-cover">02</div><div><div class="tr-name">Шанти</div><div class="tr-artist">ANDRAW</div></div></div><span class="tr-service">Яндекс Музыка</span><span class="tr-dur">↗</span></a>
+    <a class="tr-row" href="https://music.yandex.ru/album/39550308/track/145831431?utm_source=web&amp;utm_medium=copy_link" target="_blank" rel="noopener noreferrer"><div class="tr-n-wrap"><span class="tr-n">03</span><span class="tr-play">↗</span></div><div class="tr-info"><div class="tr-cover">03</div><div><div class="tr-name">Под дождём</div><div class="tr-artist">Андрей Бурдуковский, Alexandr Pierce</div></div></div><span class="tr-service">Яндекс Музыка</span><span class="tr-dur">↗</span></a>
+    <a class="tr-row" href="https://music.yandex.ru/album/35739259/track/136931326?utm_source=web&amp;utm_medium=copy_link" target="_blank" rel="noopener noreferrer"><div class="tr-n-wrap"><span class="tr-n">04</span><span class="tr-play">↗</span></div><div class="tr-info"><div class="tr-cover">04</div><div><div class="tr-name">В путь-дорогу</div><div class="tr-artist">Сёстры Селезнёвы</div></div></div><span class="tr-service">Яндекс Музыка</span><span class="tr-dur">↗</span></a>
+    <a class="tr-row" href="https://music.yandex.ru/album/30451354/track/124256611?utm_source=web&amp;utm_medium=copy_link" target="_blank" rel="noopener noreferrer"><div class="tr-n-wrap"><span class="tr-n">05</span><span class="tr-play">↗</span></div><div class="tr-info"><div class="tr-cover">05</div><div><div class="tr-name">Нас свяжут вместе</div><div class="tr-artist">Пчела</div></div></div><span class="tr-service">Яндекс Музыка</span><span class="tr-dur">↗</span></a>
+    <a class="tr-row" href="https://music.yandex.ru/album/39371596/track/145507815?utm_source=web&amp;utm_medium=copy_link" target="_blank" rel="noopener noreferrer"><div class="tr-n-wrap"><span class="tr-n">06</span><span class="tr-play">↗</span></div><div class="tr-info"><div class="tr-cover">06</div><div><div class="tr-name">Не для всех</div><div class="tr-artist">Илья Тимошек</div></div></div><span class="tr-service">Яндекс Музыка</span><span class="tr-dur">↗</span></a>
+    <a class="tr-row" href="https://music.yandex.ru/album/37906103/track/142144952?utm_source=web&amp;utm_medium=copy_link" target="_blank" rel="noopener noreferrer"><div class="tr-n-wrap"><span class="tr-n">07</span><span class="tr-play">↗</span></div><div class="tr-info"><div class="tr-cover">07</div><div><div class="tr-name">Танцуй не комплексуй</div><div class="tr-artist">Андрей Бурдуковский</div></div></div><span class="tr-service">Яндекс Музыка</span><span class="tr-dur">↗</span></a>
+    <a class="tr-row" href="https://music.yandex.ru/album/35704130/track/136849892" target="_blank" rel="noopener noreferrer"><div class="tr-n-wrap"><span class="tr-n">08</span><span class="tr-play">↗</span></div><div class="tr-info"><div class="tr-cover">08</div><div><div class="tr-name">Будь со мной</div><div class="tr-artist">Marc Newy, DrapShift, Mr.Crystall, Sovsem Dikaya</div></div></div><span class="tr-service">Яндекс Музыка</span><span class="tr-dur">↗</span></a>
+    <a class="tr-row" href="https://music.yandex.ru/album/31309328/track/126189325" target="_blank" rel="noopener noreferrer"><div class="tr-n-wrap"><span class="tr-n">09</span><span class="tr-play">↗</span></div><div class="tr-info"><div class="tr-cover">09</div><div><div class="tr-name">В моём стиле</div><div class="tr-artist">Алина Бондарева</div></div></div><span class="tr-service">Яндекс Музыка</span><span class="tr-dur">↗</span></a>
+    <a class="tr-row" href="https://music.yandex.ru/album/41518798" target="_blank" rel="noopener noreferrer"><div class="tr-n-wrap"><span class="tr-n">10</span><span class="tr-play">↗</span></div><div class="tr-info"><div class="tr-cover">10</div><div><div class="tr-name">Ля шарме</div><div class="tr-artist">КОФЕБУКЕТЫ</div></div></div><span class="tr-service">Яндекс Музыка</span><span class="tr-dur">↗</span></a>
   </div>
-  <div class="tr-more"><button class="tr-more-btn">// ПОКАЗАТЬ ВСЕ ТРЕКИ (100+) →</button></div>
+  <div class="tr-more"><button class="tr-more-btn" id="tracksToggle" type="button">// ЕЩЁ 10 ТРЕКОВ ↓</button></div>
+</section>
+
+<!-- EQUIPMENT -->
+<section class="home-equipment rv" id="equipment">
+  <div class="sec-head">
+    <h2 class="sec-h">Оборудование</h2>
+    <div class="home-equipment-actions"><a href="pages/studio.html#equipment">Вся студия ↗</a><div><button type="button" data-home-equipment-prev aria-label="Предыдущее оборудование">←</button><button type="button" data-home-equipment-next aria-label="Следующее оборудование">→</button></div></div>
+  </div>
+  <div class="home-equipment-viewport" data-home-equipment-viewport tabindex="0" aria-label="Оборудование студии">
+    <div class="home-equipment-track">
+      <a class="home-equipment-card" href="pages/studio.html#equipment"><img src="assets/media/images/studio/interior-04.jpg" alt="Барабанная установка в студии G-TEAM"><div><span>01 / Live room</span><h3>Барабанная<br>установка</h3></div></a>
+      <a class="home-equipment-card" href="pages/studio.html#equipment"><img src="assets/media/images/equipment/catalog/equipment-42.jpg" alt="Микрофон Goodfly M251"><div><span>02 / Микрофоны</span><h3>Goodfly<br>M251</h3></div></a>
+      <a class="home-equipment-card" href="pages/studio.html#equipment"><img src="assets/media/images/equipment/catalog/equipment-43.jpg" alt="Микрофон Goodfly U47"><div><span>03 / Микрофоны</span><h3>Goodfly<br>U47</h3></div></a>
+      <a class="home-equipment-card" href="pages/studio.html#equipment"><img src="assets/media/images/equipment/catalog/equipment-02.jpg" alt="Консоль AMEK Big"><div><span>04 / Консоль</span><h3>AMEK<br>Big</h3></div></a>
+      <a class="home-equipment-card" href="pages/studio.html#equipment"><img src="assets/media/images/equipment/catalog/equipment-04.jpg" alt="Мониторы Genelec 8351"><div><span>05 / Мониторинг</span><h3>Genelec<br>8351</h3></div></a>
+    </div>
+  </div>
 </section>
 
 <!-- VISUAL -->
@@ -253,57 +297,39 @@
   <div class="visual-grid">
     <a class="vg-card" href="pages/services.html#video" aria-label="Видео продакшн 01">
       <video loop playsinline preload="metadata">
-        <source src="assets/media/video/clip-1.mp4" type="video/mp4">
+        <source src="assets/media/video/portfolio-console.mp4" type="video/mp4">
       </video>
       <div class="vg-overlay"></div>
       <div class="vg-bottom-glow" aria-hidden="true"></div>
       <div class="vg-play" aria-hidden="true">▶</div>
-      <div class="vg-meta"><span class="vg-k">01</span><span class="vg-t">Клип</span></div>
+      <div class="vg-meta"><span class="vg-k">01</span><span class="vg-t">Пульт</span></div>
     </a>
     <a class="vg-card" href="pages/services.html#video" aria-label="Видео продакшн 02">
       <video loop playsinline preload="metadata">
-        <source src="assets/media/video/clip-sax.mp4" type="video/mp4">
+        <source src="assets/media/video/portfolio-guitar.mp4" type="video/mp4">
       </video>
       <div class="vg-overlay"></div>
       <div class="vg-bottom-glow" aria-hidden="true"></div>
       <div class="vg-play" aria-hidden="true">▶</div>
-      <div class="vg-meta"><span class="vg-k">02</span><span class="vg-t">Рилс</span></div>
+      <div class="vg-meta"><span class="vg-k">02</span><span class="vg-t">Гитара</span></div>
     </a>
     <a class="vg-card" href="pages/services.html#video" aria-label="Видео продакшн 03">
       <video loop playsinline preload="metadata">
-        <source src="assets/media/video/clip-3.mp4" type="video/mp4">
+        <source src="assets/media/video/portfolio-drums.mp4" type="video/mp4">
       </video>
       <div class="vg-overlay"></div>
       <div class="vg-bottom-glow" aria-hidden="true"></div>
       <div class="vg-play" aria-hidden="true">▶</div>
-      <div class="vg-meta"><span class="vg-k">03</span><span class="vg-t">Teaser</span></div>
+      <div class="vg-meta"><span class="vg-k">03</span><span class="vg-t">Live drums</span></div>
     </a>
     <a class="vg-card" href="pages/services.html#video" aria-label="Видео продакшн 04">
       <video loop playsinline preload="metadata">
-        <source src="assets/media/video/clip-4.mp4" type="video/mp4">
+        <source src="assets/media/video/portfolio-studio-plan.mp4" type="video/mp4">
       </video>
       <div class="vg-overlay"></div>
       <div class="vg-bottom-glow" aria-hidden="true"></div>
       <div class="vg-play" aria-hidden="true">▶</div>
-      <div class="vg-meta"><span class="vg-k">04</span><span class="vg-t">Backstage</span></div>
-    </a>
-    <a class="vg-card" href="pages/services.html#video" aria-label="Видео продакшн 05">
-      <video loop playsinline preload="metadata">
-        <source src="assets/media/video/about.mp4" type="video/mp4">
-      </video>
-      <div class="vg-overlay"></div>
-      <div class="vg-bottom-glow" aria-hidden="true"></div>
-      <div class="vg-play" aria-hidden="true">▶</div>
-      <div class="vg-meta"><span class="vg-k">05</span><span class="vg-t">Live</span></div>
-    </a>
-    <a class="vg-card" href="pages/services.html#video" aria-label="Видео продакшн 06">
-      <video loop playsinline preload="metadata">
-        <source src="assets/media/video/studio.mp4" type="video/mp4">
-      </video>
-      <div class="vg-overlay"></div>
-      <div class="vg-bottom-glow" aria-hidden="true"></div>
-      <div class="vg-play" aria-hidden="true">▶</div>
-      <div class="vg-meta"><span class="vg-k">06</span><span class="vg-t">Aftermovie</span></div>
+      <div class="vg-meta"><span class="vg-k">04</span><span class="vg-t">Студия</span></div>
     </a>
   </div>
 </section>
@@ -353,9 +379,9 @@
     </svg>
   </div>
   <ul class="f-nav">
-    <li><a href="pages/services.html">Услуги</a></li>
-    <li><a href="#artists">Артисты</a></li>
-    <li><a href="#reviews">Отзывы</a></li>
+    <li><a href="pages/label.html">Лейбл</a></li>
+    <li><a href="pages/services.html">Продакшн</a></li>
+    <li><a href="pages/studio.html">Студия</a></li>
     <li><a href="#contact">Контакты</a></li>
   </ul>
   <div class="f-copy">© 2024 GARVISHENSKY PRODUCTION</div>
