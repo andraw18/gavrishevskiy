@@ -458,7 +458,9 @@
 })();
 
 // NAV
-window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('stuck',scrollY>60),{passive:true});
+const syncHomeNav = () => document.getElementById('nav').classList.toggle('stuck', window.scrollY > 24);
+syncHomeNav();
+window.addEventListener('scroll', syncHomeNav, {passive:true});
 
 // MOBILE
 const artistsToggle = document.getElementById('artistsToggle');
