@@ -27,6 +27,44 @@
   loop();
 })();
 
+// Text reviews: one-card navigation, native swipe/scroll, and full quotes on demand.
+(function(){
+  const section = document.getElementById('reviews');
+  if (!section) return;
+  const track = section.querySelector('.reviews-track');
+  const cards = [...track.querySelectorAll('.rv-card')];
+  const previous = section.querySelector('[data-review-prev]');
+  const next = section.querySelector('[data-review-next]');
+  const refreshMore = () => cards.forEach(card => {
+    if (card.classList.contains('is-expanded')) return;
+    const text = card.querySelector('.rv-text');
+    card.querySelector('.rv-more').hidden = text.scrollHeight <= text.clientHeight + 2;
+  });
+  const update = () => {
+    previous.disabled = track.scrollLeft < 2;
+    next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+  };
+  const move = direction => {
+    const step = cards[1]?.offsetLeft - cards[0]?.offsetLeft || cards[0]?.offsetWidth || 1;
+    track.scrollBy({left: direction * step, behavior: 'smooth'});
+  };
+  previous.addEventListener('click', () => move(-1));
+  next.addEventListener('click', () => move(1));
+  track.addEventListener('scroll', update, {passive:true});
+  window.addEventListener('resize', () => { update(); refreshMore(); });
+  track.addEventListener('click', event => {
+    const button = event.target.closest('.rv-more');
+    if (!button) return;
+    const expanded = button.closest('.rv-card').classList.toggle('is-expanded');
+    button.setAttribute('aria-expanded', String(expanded));
+    button.textContent = expanded ? 'Свернуть ↑' : 'Читать полностью ↓';
+    if (!expanded) refreshMore();
+  });
+  update();
+  refreshMore();
+  document.fonts?.ready.then(refreshMore);
+})();
+
 // HERO VIDEO LOOP
 (function(){
   const video = document.getElementById('heroVideo');
@@ -124,56 +162,6 @@
   }, { threshold: 0.1, rootMargin: '180px 0px' });
 
   videos.forEach(video => io.observe(video));
-})();
-
-// VISUAL CLIP CARDS
-(function(){
-  const cards = Array.from(document.querySelectorAll('.vg-card'));
-  if (!cards.length) return;
-
-  const pauseCard = (card) => {
-    const video = card.querySelector('video');
-    if (!video) return;
-    video.pause();
-    card.classList.remove('is-playing');
-  };
-
-  const pauseOthers = (current) => {
-    cards.forEach(card => {
-      if (card !== current) pauseCard(card);
-    });
-  };
-
-  const playCard = (card) => {
-    const video = card.querySelector('video');
-    if (!video) return;
-    pauseOthers(card);
-    card.classList.add('is-playing');
-    video.muted = false;
-    video.volume = 1;
-    const p = video.play();
-    if (p && typeof p.catch === 'function') p.catch(() => {});
-  };
-
-  cards.forEach(card => {
-    const video = card.querySelector('video');
-    const playBtn = card.querySelector('.vg-play');
-    if (!video || !playBtn) return;
-
-    video.pause();
-
-    playBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      video.muted = false;
-      video.volume = 1;
-      if (video.paused) {
-        playCard(card);
-      } else {
-        pauseCard(card);
-      }
-    });
-  });
 })();
 
 // TRACK PLAYER
