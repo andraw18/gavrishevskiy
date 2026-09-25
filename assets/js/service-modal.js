@@ -221,9 +221,6 @@
     result.textContent = detail.result;
     price.textContent = card.querySelector('strong, .svc-tier').textContent.trim();
     discount.hidden = ['zapis', 'ozvuchka', 'dizain', 'social-design', 'reels-shoot', 'site', 'video'].includes(serviceId);
-    order.href = 'https://t.me/Gavrishevsky';
-    order.target = '_blank';
-    order.rel = 'noopener noreferrer';
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -254,6 +251,10 @@
       event.preventDefault();
       open(row);
     });
+  });
+
+  order.addEventListener('click', () => {
+    if (order.getAttribute('href') === '#contact') close();
   });
 
   modal.querySelectorAll('[data-service-close]').forEach(element => element.addEventListener('click', close));
