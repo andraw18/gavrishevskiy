@@ -462,21 +462,6 @@ const syncHomeNav = () => document.getElementById('nav').classList.toggle('stuck
 syncHomeNav();
 window.addEventListener('scroll', syncHomeNav, {passive:true});
 
-// MOBILE
-const artistsToggle = document.getElementById('artistsToggle');
-const allArtistsList = document.getElementById('allArtistsList');
-
-if (artistsToggle && allArtistsList) {
-  artistsToggle.addEventListener('click', () => {
-    const isOpen = artistsToggle.getAttribute('aria-expanded') !== 'true';
-    artistsToggle.setAttribute('aria-expanded', String(isOpen));
-    allArtistsList.setAttribute('aria-hidden', String(!isOpen));
-    allArtistsList.inert = !isOpen;
-    allArtistsList.classList.toggle('open', isOpen);
-    artistsToggle.querySelector('span:first-child').textContent = isOpen ? 'Скрыть артистов' : 'Ещё артисты';
-  });
-}
-
 const homeEquipmentViewport = document.querySelector('[data-home-equipment-viewport]');
 const homeEquipmentPrevious = document.querySelector('[data-home-equipment-prev]');
 const homeEquipmentNext = document.querySelector('[data-home-equipment-next]');
@@ -655,9 +640,43 @@ document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
   dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
 })();
 
-// Four independent artist tiles, with no artist duplicated between tiles.
+// Eight artist tiles rotate independently; each artist belongs to only one tile.
 (function(){
-  const artistGroups = [[["Андрей Бурдуковский", "https://avatars.yandex.net/get-music-content/14728505/8d8335f0.p.17483440/600x600", "https://music.yandex.ru/artist/17483440"], ["Сёстры Селезнёвы", "https://avatars.yandex.net/get-music-content/14082060/2f1fb31b.p.23046613/600x600", "https://music.yandex.ru/artist/23046613"], ["Marc Newy", "https://avatars.yandex.net/get-music-content/15142616/20d21ba7.p.17703646/m1000x1000", "https://music.yandex.ru/artist/17703646"]], [["Пчела", "https://avatars.yandex.net/get-music-content/16334817/25da6088.p.18939486/600x600", "https://music.yandex.ru/artist/18939486"], ["КОФЕБУКЕТЫ", "https://avatars.yandex.net/get-music-content/12554677/107b1870.p.23030315/600x600", "https://music.yandex.ru/artist/23030315"]], [["LEMU", "https://avatars.yandex.net/get-music-content/17649213/bbaa42ff.p.4060641/600x600", "https://music.yandex.ru/artist/4060641"], ["Отблеск витражей", "https://avatars.yandex.net/get-music-content/15018579/6723aefe.a.37545756-1/m1000x1000", "https://music.yandex.ru/artist/24499449"]], [["ANDRAW", "https://avatars.yandex.net/get-music-content/15499524/9834734f.p.12118164/600x600", "https://music.yandex.ru/artist/12118164"], ["Илья Тимошек", "https://avatars.yandex.net/get-music-content/14304155/621506c4.p.9786349/m1000x1000", "https://music.yandex.ru/artist/9786349"]]];
+  const artistGroups = [
+    [
+      ['Андрей Бурдуковский', 'https://avatars.yandex.net/get-music-content/14728505/8d8335f0.p.17483440/600x600', 'https://music.yandex.ru/artist/17483440'],
+      ['Сёстры Селезнёвы', 'https://avatars.yandex.net/get-music-content/14082060/2f1fb31b.p.23046613/600x600', 'https://music.yandex.ru/artist/23046613']
+    ],
+    [
+      ['Пчела', 'https://avatars.yandex.net/get-music-content/16334817/25da6088.p.18939486/600x600', 'https://music.yandex.ru/artist/18939486'],
+      ['КОФЕБУКЕТЫ', 'https://avatars.yandex.net/get-music-content/12554677/107b1870.p.23030315/600x600', 'https://music.yandex.ru/artist/23030315']
+    ],
+    [
+      ['LEMU', 'https://avatars.yandex.net/get-music-content/17649213/bbaa42ff.p.4060641/600x600', 'https://music.yandex.ru/artist/4060641'],
+      ['Отблеск витражей', 'https://avatars.yandex.net/get-music-content/15018579/6723aefe.a.37545756-1/m1000x1000', 'https://music.yandex.ru/artist/24499449']
+    ],
+    [
+      ['ANDRAW', 'https://avatars.yandex.net/get-music-content/15499524/9834734f.p.12118164/600x600', 'https://music.yandex.ru/artist/12118164'],
+      ['Илья Тимошек', 'https://avatars.yandex.net/get-music-content/14304155/621506c4.p.9786349/m1000x1000', 'https://music.yandex.ru/artist/9786349']
+    ],
+    [
+      ['Elfguitar', 'https://avatars.yandex.net/get-music-content/12554677/f34878eb.p.19876036/m1000x1000', 'https://music.yandex.ru/artist/19876036'],
+      ['Александра Колесникова', 'https://avatars.yandex.net/get-music-content/14715139/68a70feb.a.35009121-1/m1000x1000', 'https://music.yandex.ru/artist/19479622']
+    ],
+    [
+      ['Константин Кинст', 'https://avatars.yandex.net/get-music-content/192707/d9247af1.p.4428734/m1000x1000', 'https://music.yandex.ru/artist/4428734'],
+      ['Алина Дерябина', 'https://avatars.yandex.net/get-music-content/14183125/ccb3f0fb.a.35009152-1/m1000x1000', 'https://music.yandex.ru/artist/23638609']
+    ],
+    [
+      ['Валерия Охотницкая', 'https://avatars.yandex.net/get-music-content/3318009/58e47468.a.12238713-1/m1000x1000', 'https://music.yandex.ru/artist/10054501'],
+      ['SLAVA CRYSTALL', 'https://avatars.yandex.net/get-music-content/18172800/317a2d81.a.40106281-1/m1000x1000', 'https://music.yandex.ru/artist/25280330'],
+      ['Anvir', 'https://avatars.yandex.net/get-music-content/18172800/317a2d81.a.40106281-1/m1000x1000', 'https://music.yandex.ru/artist/17368946']
+    ],
+    [
+      ['Алина Бондарева', 'https://avatars.yandex.net/get-music-content/9837520/d1ff9124.p.22224767/m1000x1000', 'https://music.yandex.ru/artist/22224767'],
+      ['Marc Newy', 'https://avatars.yandex.net/get-music-content/15142616/20d21ba7.p.17703646/m1000x1000', 'https://music.yandex.ru/artist/17703646']
+    ]
+  ];
   document.querySelectorAll('[data-artist-slot]').forEach((tile, slot) => {
     const group = artistGroups[slot];
     if (!group || group.length < 2) return;
@@ -665,9 +684,13 @@ document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
     window.setInterval(() => {
       index = (index + 1) % group.length;
       const [name, image, link] = group[index];
-      tile.style.backgroundImage = `url("${image}")`;
-      tile.href = link;
-      tile.querySelector('.rotating-artist-name').textContent = name;
-    }, 4300 + slot * 650);
+      tile.classList.add('is-changing');
+      window.setTimeout(() => {
+        tile.style.backgroundImage = `url("${image}")`;
+        tile.href = link;
+        tile.querySelector('.rotating-artist-name').textContent = name;
+        tile.classList.remove('is-changing');
+      }, 220);
+    }, 4600 + slot * 480);
   });
 })();
