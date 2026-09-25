@@ -55,7 +55,6 @@
 
     const line1 = document.querySelector('.hero .h-line1');
     const line2 = document.querySelector('.hero .h-line2');
-    const btns = Array.from(document.querySelectorAll('.hero .h-actions a'));
 
     if (hero.line1 === 'Top Music Production©' || hero.line1 === 'G-TEAM©' || hero.line1 === 'GARVISHENSKY©' || hero.line1 === 'GAVRISHEVSKY©' || hero.line1 === 'GAVRISHEVSKIY©' || !hero.line1) {
       hero.line1 = desiredLine1;
@@ -79,10 +78,6 @@
     }
     if (line2 && hero.line2) line2.textContent = hero.line2;
 
-    if (btns[0] && hero.btn1Text) btns[0].textContent = hero.btn1Text;
-    if (btns[0] && hero.btn1Link) btns[0].setAttribute('href', hero.btn1Link);
-    if (btns[1] && hero.btn2Text) btns[1].textContent = hero.btn2Text;
-    if (btns[1] && hero.btn2Link) btns[1].setAttribute('href', hero.btn2Link);
   };
 
   if (document.readyState === 'loading') {
