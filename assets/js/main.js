@@ -462,24 +462,6 @@ const syncHomeNav = () => document.getElementById('nav').classList.toggle('stuck
 syncHomeNav();
 window.addEventListener('scroll', syncHomeNav, {passive:true});
 
-const homeEquipmentViewport = document.querySelector('[data-home-equipment-viewport]');
-const homeEquipmentPrevious = document.querySelector('[data-home-equipment-prev]');
-const homeEquipmentNext = document.querySelector('[data-home-equipment-next]');
-
-if (homeEquipmentViewport && homeEquipmentPrevious && homeEquipmentNext) {
-  const moveHomeEquipment = (direction) => {
-    const card = homeEquipmentViewport.querySelector('.home-equipment-card');
-    const amount = card ? card.getBoundingClientRect().width + 13 : homeEquipmentViewport.clientWidth * .8;
-    homeEquipmentViewport.scrollBy({ left: amount * direction, behavior: 'smooth' });
-  };
-  homeEquipmentPrevious.addEventListener('click', () => moveHomeEquipment(-1));
-  homeEquipmentNext.addEventListener('click', () => moveHomeEquipment(1));
-  homeEquipmentViewport.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowLeft') moveHomeEquipment(-1);
-    if (event.key === 'ArrowRight') moveHomeEquipment(1);
-  });
-}
-
 const tracksToggle = document.getElementById('tracksToggle');
 const tracksList = document.getElementById('trList');
 const moreTracks = [
