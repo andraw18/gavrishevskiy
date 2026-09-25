@@ -1051,8 +1051,8 @@ a,button,.svc-row,.bc,.tr-row{cursor:pointer}
 .hero-intro .hero-intro-start span{color:var(--red);font-size:1.1rem;transition:transform .2s}
 .hero-intro .hero-intro-start:hover{background:rgba(45,12,16,.88)}
 .hero-intro .hero-intro-start:hover span{transform:translate(3px,-3px)}
-.hero-intro .hero-discount{display:flex;flex-direction:column;align-items:stretch;justify-content:space-between;gap:1rem;width:clamp(220px,21vw,270px);min-height:235px;aspect-ratio:1.08;max-width:none;padding:1rem;border:1px solid rgba(230,50,50,.7);background:linear-gradient(145deg,rgba(60,10,16,.96),rgba(9,9,10,.96) 68%);box-shadow:0 20px 55px rgba(0,0,0,.4),inset 0 0 55px rgba(180,26,42,.13);text-align:left;transition:background .2s,border-color .2s,transform .2s}
-.hero-intro .hero-discount strong{display:block;width:100%;padding:1rem;background:var(--red);color:#fff;font-size:clamp(1.2rem,1.7vw,1.55rem);line-height:1.18;letter-spacing:-.03em;text-transform:uppercase;white-space:normal}
+.hero-intro .hero-discount{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:.7rem;width:clamp(220px,21vw,270px);min-height:0;aspect-ratio:auto;max-width:none;padding:.75rem;border:1px solid rgba(230,50,50,.7);background:linear-gradient(145deg,rgba(60,10,16,.96),rgba(9,9,10,.96) 68%);box-shadow:0 20px 55px rgba(0,0,0,.4),inset 0 0 55px rgba(180,26,42,.13);text-align:left;transition:background .2s,border-color .2s,transform .2s}
+.hero-intro .hero-discount strong{display:block;width:100%;padding:.75rem;background:var(--red);color:#fff;font-size:clamp(1.2rem,1.7vw,1.55rem);line-height:1.18;letter-spacing:-.03em;text-transform:uppercase;white-space:normal}
 .hero-intro .hero-discount>span{font-size:.59rem;line-height:1.6;letter-spacing:.02em;text-transform:uppercase}
 .hero-intro .hero-discount>span span{color:#ff6868;font-size:.8rem}
 .hero-intro .hero-discount:hover{border-color:#ff6868;background:linear-gradient(145deg,rgba(83,15,23,.98),rgba(15,11,12,.98) 68%);transform:translateY(-3px)}
@@ -1077,7 +1077,7 @@ a,button,.svc-row,.bc,.tr-row{cursor:pointer}
   .hero-main-links .hero-link-arrow{font-size:.9rem}
   .hero-intro{align-items:flex-start;gap:1rem;padding:0}
   .hero-intro .hero-intro-start{font-size:.86rem;padding:.75rem 1rem}
-  .hero-intro .hero-discount{align-self:flex-end;width:min(100%,250px);min-height:210px}
+  .hero-intro .hero-discount{align-self:flex-end;width:min(100%,250px);min-height:0}
   .hero-intro .hero-discount strong{font-size:1.2rem}
 }
 
