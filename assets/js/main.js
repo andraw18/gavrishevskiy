@@ -647,7 +647,7 @@ document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 
   // A higher position in each spreadsheet group gets a longer turn on the card.
   const displayDurations = [11000, 9000, 7500, 6300, 5200, 4300];
-  fetch('assets/data/artists.json?v=1')
+  fetch('assets/data/artists.json?v=2')
     .then(response => {
       if (!response.ok) throw new Error('Artist list unavailable');
       return response.json();
