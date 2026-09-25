@@ -332,3 +332,35 @@ if (equipmentModal) {
     if (event.key === 'Escape' && equipmentModal.classList.contains('open')) closeEquipment();
   });
 }
+
+// Label service detail windows.
+(function(){
+  const dialog = document.getElementById('labelDetail');
+  if (!dialog || !dialog.showModal) return;
+  document.querySelectorAll('.label-service').forEach(card => card.addEventListener('click', event => {
+    event.preventDefault();
+    dialog.querySelector('#labelDetailTitle').textContent = card.dataset.labelTitle;
+    dialog.querySelector('[data-label-description]').textContent = card.dataset.labelCopy;
+    dialog.showModal();
+  }));
+  dialog.querySelector('[data-label-close]').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+})();
+
+// Same artist groups as on the home page; each group appears in one tile only.
+(function(){
+  const groups = [[["Андрей Бурдуковский", "https://avatars.yandex.net/get-music-content/14728505/8d8335f0.p.17483440/600x600", "https://music.yandex.ru/artist/17483440"], ["Сёстры Селезнёвы", "https://avatars.yandex.net/get-music-content/14082060/2f1fb31b.p.23046613/600x600", "https://music.yandex.ru/artist/23046613"], ["Marc Newy", "https://avatars.yandex.net/get-music-content/15142616/20d21ba7.p.17703646/m1000x1000", "https://music.yandex.ru/artist/17703646"]], [["Пчела", "https://avatars.yandex.net/get-music-content/16334817/25da6088.p.18939486/600x600", "https://music.yandex.ru/artist/18939486"], ["КОФЕБУКЕТЫ", "https://avatars.yandex.net/get-music-content/12554677/107b1870.p.23030315/600x600", "https://music.yandex.ru/artist/23030315"]], [["LEMU", "https://avatars.yandex.net/get-music-content/17649213/bbaa42ff.p.4060641/600x600", "https://music.yandex.ru/artist/4060641"], ["Отблеск витражей", "https://avatars.yandex.net/get-music-content/15018579/6723aefe.a.37545756-1/m1000x1000", "https://music.yandex.ru/artist/24499449"]], [["ANDRAW", "https://avatars.yandex.net/get-music-content/15499524/9834734f.p.12118164/600x600", "https://music.yandex.ru/artist/12118164"], ["Илья Тимошек", "https://avatars.yandex.net/get-music-content/14304155/621506c4.p.9786349/m1000x1000", "https://music.yandex.ru/artist/9786349"]]];
+  document.querySelectorAll('.label-artist-card[data-artist-slot]').forEach((card,slot) => {
+    const group = groups[slot];
+    if (!group || group.length < 2) return;
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % group.length;
+      const [name,image,link] = group[index];
+      card.href = link;
+      card.querySelector('img').src = image;
+      card.querySelector('img').alt = name + ' в Яндекс Музыке';
+      card.querySelector('h3').textContent = name;
+    }, 4300 + slot * 650);
+  });
+})();

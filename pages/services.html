@@ -1,231 +1,37 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>G-TEAM — Production</title>
-<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=4" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png?v=4">
-<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png?v=4">
-<link rel="shortcut icon" href="../favicon.ico?v=4">
-<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png?v=4">
-<link rel="manifest" href="../site.webmanifest?v=4">
-<link rel="stylesheet" href="../assets/css/services.css">
-</head>
-<body>
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Услуги и цены — Top Music Production</title><meta name="description" content="Услуги Top Music Production: запись, аранжировка, сведение, продвижение и визуальный продакшн с понятными ценами."><link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=5" sizes="any"><link rel="manifest" href="../site.webmanifest"><link rel="stylesheet" href="../assets/css/services.css?v=6"></head><body>
+<nav><a href="../index.html" class="n-logo" aria-label="Top Music Production"><img class="nav-logo-svg" src="../assets/icons/logo.svg" alt=""><span class="nav-logo-text">Top Music Production</span></a><div class="n-right"><a href="../index.html" class="n-back">Главная</a></div></nav>
+<header class="ph rv"><div class="ph-vid"><video autoplay muted loop playsinline preload="none" data-lazy-video><source data-src="../assets/media/video/about.mp4" type="video/mp4"></video><div class="ph-vid-ov"></div></div><h1 class="ph-h">УСЛУГИ</h1><div class="ph-row"><div class="ph-count"><span class="ph-accent">Прозрачные цены</span><br>и индивидуальный подход</div></div><div class="production-categories"><a href="#music">Музыкальный продакшн ↗</a><a href="#visual">Визуальный продакшн ↗</a><a href="#other">Идейный продакшн ↗</a></div></header>
+<div class="filter-bar" role="navigation" aria-label="Категории услуг"><a class="fb-item on" href="#catalog">Все</a><a class="fb-item" href="#music">Музыка</a><a class="fb-item" href="#label">Лейбл</a><a class="fb-item" href="#other">Другие услуги</a><a class="fb-item" href="#visual">Визуал</a></div>
+<main class="service-catalog" id="catalog"><p class="catalog-intro">Выберите услугу и расскажите нам о задаче. Цена указана за обозначенный объём работы; если нужен другой формат, обсудим его до начала проекта.</p>
 
-<div id="cur"></div><div id="cur-r"></div>
-
-<nav>
-  <a href="../index.html" class="n-logo" aria-label="G-TEAM©">
-    <img class="nav-logo-svg" src="../assets/icons/logo.svg" alt="" aria-hidden="true">
-    <span class="nav-logo-text">G-TEAM<sup class="brand-c">©</sup></span>
-  </a>
-  <div class="n-right">
-    <a href="../index.html" class="n-back">Главная</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<header class="ph rv">
-  <div class="ph-vid">
-    <video autoplay muted loop playsinline preload="none" data-lazy-video>
-      <source data-src="../assets/media/video/about.mp4" type="video/mp4">
-    </video>
-    <div class="ph-vid-ov"></div>
-  </div>
-  <h1 class="ph-h">PRODUCTION</h1>
-  <div class="ph-row">
-    <div class="ph-count"><span class="ph-accent" style="color:var(--red)">ЗВУЧИ</span> как профи,<br>мы поможем</div>
-  </div>
-</header>
-
-<!-- FILTER -->
-<div class="filter-bar">
-  <div class="fb-item on" onclick="flt('all',this)">Все</div>
-  <div class="fb-item" onclick="flt('music',this)">Музыка</div>
-  <div class="fb-item" onclick="flt('promo',this)">Продвижение</div>
-  <div class="fb-item" onclick="flt('design',this)">Дизайн</div>
-  <div class="fb-item" onclick="flt('video',this)">Видео</div>
-</div>
-
-<div class="grid" id="g">
-
-  <!-- ─ МУЗЫКА ─ -->
-  <div class="sdiv"><span class="sdiv-lbl">// Музыкальный продакшн</span><div class="sdiv-line"></div></div>
-
-  <!-- 01 Песня под ключ — 5col tall -->
-  <div class="sc c5 h380 rv" id="pesnya" data-cat="music">
-    <div class="sc-bar"></div>
-    <div class="sc-n">01</div>
-    <div class="sc-badge">Хит продаж</div>
-    <div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
-    <div class="sc-name">Песня<br>под ключ</div>
-    <p class="sc-desc">Трек с нуля — текст, мелодия, аранжировка, запись, сведение, мастеринг. Готовый файл для стримингов.</p>
-    <div class="tiers">
-      <div class="tier-r"><div><div class="tier-n">Smart</div><div class="tier-d">Демо-качество · 5 дней</div></div><div class="tier-p">от 30 000 ₽</div></div>
-      <div class="tier-r"><div><div class="tier-n">Medium</div><div class="tier-d">Стриминг-качество · 10 дней</div></div><div class="tier-p">от 60 000 ₽</div></div>
-      <div class="tier-r"><div><div class="tier-n">Pro</div><div class="tier-d">Топ-уровень · 14 дней</div></div><div class="tier-p">от 120 000 ₽</div></div>
-    </div>
-  </div>
-
-  <!-- 02 Аранжировка — 4col -->
-  <div class="sc c4 h380 rv" id="aranzhirovka" data-cat="music">
-    <div class="sc-bar"></div>
-    <div class="sc-n">02</div>
-    <div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="1"/><path d="M7 5v8M12 5v8M17 5v8"/><rect x="5" y="5" width="3" height="6" fill="var(--red)" rx=".3"/><rect x="10" y="5" width="3" height="6" fill="var(--red)" rx=".3"/><rect x="15" y="5" width="3" height="6" fill="var(--red)" rx=".3"/></svg></div>
-    <div class="sc-name sc-name-sm">Аранжировка</div>
-    <p class="sc-desc">Музыкальная основа под твой жанр и референсы — гармония, ритм, инструменты, атмосфера.</p>
-    <div class="tiers">
-      <div class="tier-r"><div><div class="tier-n">Smart</div><div class="tier-d">Базовые инструменты</div></div><div class="tier-p">от 5 000 ₽</div></div>
-      <div class="tier-r"><div><div class="tier-n">Medium</div><div class="tier-d">Живые + синтетика</div></div><div class="tier-p">от 12 000 ₽</div></div>
-      <div class="tier-r"><div><div class="tier-n">Pro</div><div class="tier-d">Оркестр · Полный стек</div></div><div class="tier-p">от 25 000 ₽</div></div>
-    </div>
-  </div>
-
-  <!-- 03 Запись — 3col -->
-  <div class="sc c3 h380 rv" id="zapis" data-cat="music">
-    <div class="sc-bar"></div>
-    <div class="sc-n">03</div>
-    <div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0014 0"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg></div>
-    <div class="sc-name">Запись в студии</div>
-    <div class="tiers" style="margin-top:auto">
-      <div class="tier-r"><div><div class="tier-n">1 час</div></div><div class="tier-p">3 000 ₽</div></div>
-      <div class="tier-r"><div><div class="tier-n">Полдня</div></div><div class="tier-p">10 000 ₽</div></div>
-      <div class="tier-r"><div><div class="tier-n">Полный день</div></div><div class="tier-p">18 000 ₽</div></div>
-    </div>
-    <span class="sc-arr">→</span>
-  </div>
-
-  <!-- 04 Сведение — 7col wide -->
-  <div class="sc c7 h260 rv" id="svedenie" data-cat="music">
-    <div class="sc-bar"></div>
-    <div class="sc-n">04</div>
-    <div style="display:flex;align-items:flex-start;gap:2rem;margin-bottom:1.5rem">
-      <div class="sc-ico" style="flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="8" cy="6" r="2" fill="var(--red)"/><circle cx="16" cy="12" r="2" fill="var(--red)"/><circle cx="10" cy="18" r="2" fill="var(--red)"/></svg></div>
-      <div class="sc-name">Сведение</div>
-    </div>
-    <div class="tiers-h" style="grid-template-columns:1fr 1fr 1fr">
-      <div class="tier-r"><div class="tier-n">Голос + минус</div><div class="tier-d">2 дорожки</div><div class="tier-p">от 4 000 ₽</div></div>
-      <div class="tier-r"><div class="tier-n">Мультитрек</div><div class="tier-d">до 32 дорожек</div><div class="tier-p">от 10 000 ₽</div></div>
-      <div class="tier-r"><div class="tier-n">Pro</div><div class="tier-d">Без ограничений</div><div class="tier-p">от 20 000 ₽</div></div>
-    </div>
-  </div>
-
-  <!-- 05 Мастеринг — 5col -->
-  <div class="sc c5 h260 rv" id="mastering" data-cat="music">
-    <div class="sc-bar"></div>
-    <div class="sc-n">05</div>
-    <div style="display:flex;gap:1.5rem;align-items:flex-start">
-      <div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="rgba(230,50,50,.15)"/></svg></div>
-      <div><div class="sc-name">Мастеринг</div><p class="sc-desc" style="margin-bottom:0">LUFS для Spotify, Apple, Яндекс. Финальный этап перед релизом.</p></div>
-    </div>
-    <div class="tiers" style="margin-top:auto">
-      <div class="tier-r"><div><div class="tier-n">Smart</div><div class="tier-d">1 трек · 1 день</div></div><div class="tier-p">от 2 000 ₽</div></div>
-      <div class="tier-r"><div><div class="tier-n">Medium</div><div class="tier-d">Stem-мастеринг</div></div><div class="tier-p">от 5 000 ₽</div></div>
-      <div class="tier-r"><div><div class="tier-n">Pro</div><div class="tier-d">Аналоговая цепь</div></div><div class="tier-p">от 10 000 ₽</div></div>
-    </div>
-  </div>
-
-  <!-- 06 Биты — 3col -->
-  <div class="sc c3 h260 rv" id="bity" data-cat="music">
-    <div class="sc-bar"></div>
-    <div class="sc-n">06</div>
-    <div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2" fill="var(--red)"/><circle cx="16" cy="10" r="2" fill="var(--red)"/><line x1="8" y1="14" x2="16" y2="14"/></svg></div>
-    <div class="sc-name">Биты</div>
-    <div class="tiers" style="margin-top:auto">
-      <div class="tier-r"><div><div class="tier-n">Лицензия</div></div><div class="tier-p">от 3 000 ₽</div></div>
-      <div class="tier-r"><div><div class="tier-n">Эксклюзив</div></div><div class="tier-p">от 15 000 ₽</div></div>
-    </div>
-    <span class="sc-arr">→</span>
-  </div>
-
-  <!-- ─ ПРОДВИЖЕНИЕ ─ -->
-  <div class="sdiv"><span class="sdiv-lbl">// Дистрибьюция и продвижение</span><div class="sdiv-line"></div></div>
-
-  <!-- 07 Дистрибьюция — 4col -->
-  <div class="sc c4 h300 rv" id="distribuciya" data-cat="promo">
-    <div class="sc-bar"></div>
-    <div class="sc-n">07</div>
-    <div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C12 2 7 7 7 13a5 5 0 0010 0c0-6-5-11-5-11z" fill="rgba(230,50,50,.12)"/><circle cx="12" cy="13" r="2" fill="var(--red)"/><path d="M9 20c-2 1-4 1-5 0 1-2 2-4 4-5M15 20c2 1 4 1 5 0-1-2-2-4-4-5"/></svg></div>
-    <div class="sc-name">Дистри&shy;бьюция</div>
-    <div class="tiers" style="margin-top:auto">
-      <div class="tier-r"><div><div class="tier-n">Выпуск</div><div class="tier-d">1 сингл · 5 дней</div></div><div class="tier-p">от 3 000 ₽</div></div>
-      <div class="tier-r"><div><div class="tier-n">Прогрев</div><div class="tier-d">+ питчинг и анонс</div></div><div class="tier-p">от 15 000 ₽</div></div>
-      <div class="tier-r"><div><div class="tier-n">Стратегия</div><div class="tier-d">Полный план релиза</div></div><div class="tier-p">от 30 000 ₽</div></div>
-    </div>
-  </div>
-
-  <!-- 08 Продвижение — 5col -->
-  <div class="sc c5 h300 rv" id="prodvizhenie" data-cat="promo">
-    <div class="sc-bar"></div>
-    <div class="sc-n">08</div>
-    <div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
-    <div class="sc-name">Продви&shy;жение</div>
-    <p class="sc-desc">Плейлисты, PR, таргет, работа с редакциями Яндекс Музыки и ВКонтакте.</p>
-    <div class="tiers" style="margin-top:auto">
-      <div class="tier-r"><div><div class="tier-n">SMM</div><div class="tier-d">Контент · Рилсы</div></div><div class="tier-p">от 20 000 ₽/мес</div></div>
-      <div class="tier-r"><div><div class="tier-n">Плейлисты + PR</div></div><div class="tier-p">от 25 000 ₽</div></div>
-      <div class="tier-r"><div><div class="tier-n">Full Strategy</div></div><div class="tier-p">от 60 000 ₽/мес</div></div>
-    </div>
-  </div>
-
-  <!-- CTA — 3col -->
-  <div class="sc c3 h300 sc-cta rv">
-    <div class="cta-sub">Не знаешь с чего начать?</div>
-    <div class="cta-ttl">Давай<br>обсудим</div>
-    <a href="../index.html#contact" class="cta-btn">Написать →</a>
-  </div>
-
-  <!-- ─ ВИЗУАЛ ─ -->
-  <div class="sdiv"><span class="sdiv-lbl">// Визуальный продакшн</span><div class="sdiv-line"></div></div>
-
-  <!-- 09 Дизайн — 12col full -->
-  <div class="sc c12 h260 rv" id="dizain" data-cat="design" style="border-right:none">
-    <div style="flex:1">
-      <div class="sc-n">09</div>
-      <div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"><path d="M12 2a10 10 0 100 20 4 4 0 000-8 4 4 0 010-8 10 10 0 000-4z" fill="rgba(230,50,50,.08)"/><circle cx="8" cy="9" r="1.5" fill="var(--red)"/><circle cx="16" cy="9" r="1.5" fill="var(--red)"/><circle cx="8" cy="14" r="1.5" fill="var(--red)"/></svg></div>
-      <div class="sc-name">Дизайн</div>
-      <p class="sc-desc" style="max-width:360px">Обложка, страница артиста, полноценный сайт — всё под твой стиль.</p>
-    </div>
-    <div class="tiers-h" style="grid-template-columns:1fr 1fr 1fr;width:480px;flex-shrink:0">
-      <div class="tier-r"><div class="tier-n">Обложка</div><div class="tier-d">1-2 варианта · 3 дня</div><div class="tier-p">от 5 000 ₽</div></div>
-      <div class="tier-r"><div class="tier-n">Страница артиста</div><div class="tier-d">Шапка + оформление</div><div class="tier-p">от 12 000 ₽</div></div>
-      <div class="tier-r"><div class="tier-n">Сайт</div><div class="tier-d">Лендинг · 14 дней</div><div class="tier-p">от 45 000 ₽</div></div>
-    </div>
-  </div>
-
-  <!-- 10 Видео — 8col -->
-  <div class="sc c8 h300 rv" id="video" data-cat="video">
-    <div class="sc-bar"></div>
-    <div class="sc-n">10</div>
-    <div style="display:flex;gap:1.5rem;align-items:flex-start;margin-bottom:1.5rem">
-      <div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 9h20" stroke-width="1.2"/><polygon points="10,13 16,16 10,19" fill="var(--red)" opacity=".8"/></svg></div>
-      <div class="sc-name">Видео продакшн</div>
-    </div>
-    <div class="tiers-h" style="grid-template-columns:1fr 1fr 1fr">
-      <div class="tier-r"><div class="tier-n">Рилсы × 4</div><div class="tier-d">Монтаж из материала</div><div class="tier-p">от 20 000 ₽</div></div>
-      <div class="tier-r"><div class="tier-n">Клип: Smart</div><div class="tier-d">1 локация · 1 день</div><div class="tier-p">от 80 000 ₽</div></div>
-      <div class="tier-r"><div class="tier-n">Клип: Pro</div><div class="tier-d">Постановка · 2+ дня</div><div class="tier-p">от 200 000 ₽</div></div>
-    </div>
-  </div>
-
-  <!-- INFO — 4col -->
-  <div class="sc c4 h300 sc-info rv" style="border-right:none">
-    <div class="sc-bar"></div>
-    <div class="sc-n">// Как работаем</div>
-    <div class="sc-name" style="font-size:1.2rem;margin-bottom:.8rem">Бриф → Производство → Выпуск</div>
-    <p class="sc-desc">Созвон или переписка — обсуждаем задачу. До 2 раундов правок включено. Сроки и цена фиксируются заранее.</p>
-    <a href="../index.html#contact" style="font-family:'Unbounded';font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:.2rem;margin-top:auto;display:inline-block;transition:all .2s" onmouseenter="this.style.color='#f2f0eb'" onmouseleave="this.style.color='var(--dim)'">Написать нам →</a>
-  </div>
-
-</div>
-
-<footer>
-  <div class="f-logo">GARVISHENSKY</div>
-  <div class="f-c">© 2024 GARVISHENSKY PRODUCTION</div>
-</footer>
-
-<script src="../assets/js/services.js"></script>
-</body>
-</html>
+<section class="catalog-section" id="music"><h2 class="catalog-heading">Музыкальный продакшн</h2><div class="catalog-grid">
+<article class="catalog-card" id="pesnya"><span class="catalog-number">01 / Музыкальный продакшн</span><h3>Запись песни под ключ</h3><p>Аранжировка, запись, сведение и мастеринг готовой песни.</p><div class="catalog-card-bottom"><strong>65 000 ₽</strong><a href="mailto:hello@garvishensky.pro?subject=Запись песни под ключ">Заказать →</a></div></article>
+<article class="catalog-card" id="sozdanie-pesni"><span class="catalog-number">02 / Музыкальный продакшн</span><h3>Создание песни под ключ</h3><p>Создадим песню от идеи и мелодии до готового файла для релиза.</p><div class="catalog-card-bottom"><strong>110 000 ₽</strong><a href="mailto:hello@garvishensky.pro?subject=Создание песни под ключ">Заказать →</a></div></article>
+<article class="catalog-card" id="zapis"><span class="catalog-number">03 / Музыкальный продакшн</span><h3>Почасовая работа в студии</h3><p>Запись голоса, инструментов и совместная работа над продакшном.</p><div class="catalog-card-bottom"><strong>3 000 ₽/час</strong><a href="mailto:hello@garvishensky.pro?subject=Почасовая работа в студии">Заказать →</a></div></article>
+<article class="catalog-card" id="aranzhirovka"><span class="catalog-number">04 / Музыкальный продакшн</span><h3>Аранжировка</h3><p>Создадим аранжировку из демо или мелодии под ваш жанр и референсы. Запись приглашённых музыкантов оплачивается отдельно.</p><div class="catalog-card-bottom"><strong>35 000 ₽</strong><a href="mailto:hello@garvishensky.pro?subject=Аранжировка">Заказать →</a></div></article>
+<article class="catalog-card" id="svedenie"><span class="catalog-number">05 / Музыкальный продакшн</span><h3>Сведение PRO</h3><p>Детально обработаем дорожки, ритмику и вокал, подготовим трек к релизу.</p><div class="catalog-card-bottom"><strong>25 000 ₽</strong><a href="mailto:hello@garvishensky.pro?subject=Сведение PRO">Заказать →</a></div></article>
+<article class="catalog-card" id="svedenie-golos"><span class="catalog-number">06 / Музыкальный продакшн</span><h3>Сведение голоса с минусовкой</h3><p>Обработаем вокал и сведём его с готовой минусовкой.</p><div class="catalog-card-bottom"><strong>15 000 ₽</strong><a href="mailto:hello@garvishensky.pro?subject=Сведение голоса с минусовкой">Заказать →</a></div></article>
+<article class="catalog-card" id="mastering"><span class="catalog-number">07 / Музыкальный продакшн</span><h3>Мастеринг</h3><p>Выровняем громкость, частотный баланс и динамику для стриминговых площадок.</p><div class="catalog-card-bottom"><strong>10 000 ₽</strong><a href="mailto:hello@garvishensky.pro?subject=Мастеринг">Заказать →</a></div></article>
+<article class="catalog-card" id="analog-mastering"><span class="catalog-number">08 / Музыкальный продакшн</span><h3>Аналоговый мастеринг</h3><p>Придадим треку характер и глубину с помощью аналогового оборудования.</p><div class="catalog-card-bottom"><strong>10 000 ₽</strong><a href="mailto:hello@garvishensky.pro?subject=Аналоговый мастеринг">Заказать →</a></div></article>
+<article class="catalog-card" id="soprovoditelnaya-muzyka"><span class="catalog-number">09 / Музыкальный продакшн</span><h3>Сопровождающая музыка</h3><p>Напишем оригинальную музыку для видео, игры, рекламы или подкаста.</p><div class="catalog-card-bottom"><strong>50 000 ₽ / 20 мин</strong><a href="mailto:hello@garvishensky.pro?subject=Сопровождающая музыка">Заказать →</a></div></article>
+<article class="catalog-card" id="svedenie-show"><span class="catalog-number">10 / Музыкальный продакшн</span><h3>Сведение шоу</h3><p>Очистим и сбалансируем звук подкаста, интервью или аудиошоу.</p><div class="catalog-card-bottom"><strong>30 000 ₽/час</strong><a href="mailto:hello@garvishensky.pro?subject=Сведение шоу">Заказать →</a></div></article>
+</div></section>
+<section class="catalog-section" id="label"><h2 class="catalog-heading">Лейбл</h2><div class="catalog-grid">
+<article class="catalog-card" id="strategiya"><span class="catalog-number">11 / Лейбл</span><h3>Стратегия продвижения</h3><p>План релизов и продвижения с учётом аудитории, целей и бюджета.</p><div class="catalog-card-bottom"><strong>50 000 ₽</strong><a href="mailto:hello@garvishensky.pro?subject=Стратегия продвижения">Заказать →</a></div></article>
+<article class="catalog-card" id="distribuciya"><span class="catalog-number">12 / Лейбл</span><h3>Дистрибьюция</h3><p>Разместим релиз на ключевых стриминговых площадках.</p><div class="catalog-card-bottom"><strong>5 000 ₽</strong><a href="mailto:hello@garvishensky.pro?subject=Дистрибьюция">Заказать →</a></div></article>
+<article class="catalog-card" id="blogery"><span class="catalog-number">13 / Лейбл</span><h3>Реклама у блогеров</h3><p>Подберём подходящих авторов и организуем размещение.</p><div class="catalog-card-bottom"><strong>10 000 ₽</strong><a href="mailto:hello@garvishensky.pro?subject=Реклама у блогеров">Заказать →</a></div></article>
+</div></section>
+<section class="catalog-section" id="other"><h2 class="catalog-heading">Нестудийные услуги</h2><div class="catalog-grid">
+<article class="catalog-card" id="ozvuchka"><span class="catalog-number">14 / Нестудийные услуги</span><h3>Озвучка</h3><p>Озвучим рекламу, видео, аудиокнигу или другой проект.</p><div class="catalog-card-bottom"><strong>5 000 ₽/мин</strong><a href="mailto:hello@garvishensky.pro?subject=Озвучка">Заказать →</a></div></article>
+<article class="catalog-card" id="ghostwriting"><span class="catalog-number">15 / Нестудийные услуги</span><h3>Гострайтинг</h3><p>Напишем текст с учётом вашего стиля, темы и посыла.</p><div class="catalog-card-bottom"><strong>30 000 ₽</strong><a href="mailto:hello@garvishensky.pro?subject=Гострайтинг">Заказать →</a></div></article>
+<article class="catalog-card" id="songwriting"><span class="catalog-number">16 / Нестудийные услуги</span><h3>Сонграйтинг</h3><p>Разработаем идею, текст, мелодию и структуру песни.</p><div class="catalog-card-bottom"><strong>50 000 ₽</strong><a href="mailto:hello@garvishensky.pro?subject=Сонграйтинг">Заказать →</a></div></article>
+</div></section>
+<section class="catalog-section" id="visual"><h2 class="catalog-heading">Визуальный продакшн</h2><div class="catalog-grid">
+<article class="catalog-card" id="dizain"><span class="catalog-number">17 / Визуальный продакшн</span><h3>Дизайн обложки</h3><p>Создадим обложку, которая передаёт настроение релиза.</p><div class="catalog-card-bottom"><strong>5 000 ₽</strong><a href="mailto:hello@garvishensky.pro?subject=Дизайн обложки">Заказать →</a></div></article>
+<article class="catalog-card" id="social-design"><span class="catalog-number">18 / Визуальный продакшн</span><h3>Дизайн соцсетей</h3><p>Разработаем узнаваемый стиль и оформление профилей.</p><div class="catalog-card-bottom"><strong>20 000 ₽</strong><a href="mailto:hello@garvishensky.pro?subject=Дизайн соцсетей">Заказать →</a></div></article>
+<article class="catalog-card" id="reels-shoot"><span class="catalog-number">19 / Визуальный продакшн</span><h3>Съёмка рилс</h3><p>Снимем короткое видео для продвижения проекта.</p><div class="catalog-card-bottom"><strong>1 500 ₽/шт</strong><a href="mailto:hello@garvishensky.pro?subject=Съёмка рилс">Заказать →</a></div></article>
+<article class="catalog-card" id="reels-edit"><span class="catalog-number">20 / Визуальный продакшн</span><h3>Монтаж рилс</h3><p>Смонтируем короткое видео из готового материала.</p><div class="catalog-card-bottom"><strong>1 500 ₽/шт</strong><a href="mailto:hello@garvishensky.pro?subject=Монтаж рилс">Заказать →</a></div></article>
+<article class="catalog-card" id="site"><span class="catalog-number">21 / Визуальный продакшн</span><h3>Сайт</h3><p>Разработаем адаптивный сайт для презентации вашего творчества.</p><div class="catalog-card-bottom"><strong>100 000 ₽</strong><a href="mailto:hello@garvishensky.pro?subject=Сайт">Заказать →</a></div></article>
+<article class="catalog-card" id="video"><span class="catalog-number">22 / Визуальный продакшн</span><h3>Клип</h3><p>Подготовим сценарий, организуем съёмку и постпродакшн.</p><div class="catalog-card-bottom"><strong>200 000 ₽</strong><a href="mailto:hello@garvishensky.pro?subject=Клип">Заказать →</a></div></article>
+</div></section>
+<section class="catalog-contact"><h2>Обсудим ваш проект?</h2><p>Расскажите о задаче — подскажем подходящую услугу и уточним детали.</p><a href="../index.html#contact">Связаться →</a></section></main><footer><div class="f-logo">Top Music Production</div><div class="f-c">© 2026 Top Music Production</div></footer><script src="../assets/js/services.js?v=2"></script></body></html>

@@ -1,4 +1,4 @@
-# GARVISHENSKY — Сайт продюсерского центра
+# Top Music Production — Сайт продюсерского центра
 
 ## Структура
 ```
@@ -20,7 +20,7 @@ garvishensky/
 │   │       ├── lola.jpg    # Логотип артиста LOLA
 │   │       └── andraw.jpg  # Логотип артиста ANDRAW
 │   └── icons/
-│       └── logo.svg        # SVG логотип GARVISHENSKY
+│       └── logo.svg        # SVG логотип Top Music Production
 └── .vscode/
     ├── settings.json       # Настройки VS Code
     └── extensions.json     # Рекомендуемые расширения

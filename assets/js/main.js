@@ -1,20 +1,4 @@
 
-// CURSOR
-const cur = document.getElementById('cur');
-let mx = window.innerWidth * 0.5;
-let my = window.innerHeight * 0.5;
-if (cur) {
-  document.addEventListener('mousemove', e => {
-    mx=e.clientX; my=e.clientY;
-    cur.style.setProperty('--mx', mx+'px');
-    cur.style.setProperty('--my', my+'px');
-  });
-  document.querySelectorAll('a,button,.svc-row,.bc,.tr-row').forEach(el => {
-    el.addEventListener('mouseenter', () => cur.classList.add('big'));
-    el.addEventListener('mouseleave', () => cur.classList.remove('big'));
-  });
-}
-
 // PAGE WARP + RED DISTORTION
 (function(){
   const body = document.body;
@@ -67,13 +51,13 @@ if (cur) {
   const applyHeroData = () => {
     const data = safeJson(localStorage.getItem(STORAGE_KEY));
     const hero = data.hero || {};
-    const desiredLine1 = 'G-TEAM©';
+    const desiredLine1 = 'Top Music©';
 
     const line1 = document.querySelector('.hero .h-line1');
     const line2 = document.querySelector('.hero .h-line2');
     const btns = Array.from(document.querySelectorAll('.hero .h-actions a'));
 
-    if (hero.line1 === 'GAVRISHEVSKY©' || hero.line1 === 'GAVRISHEVSKIY©' || !hero.line1) {
+    if (hero.line1 === 'Top Music Production©' || hero.line1 === 'G-TEAM©' || hero.line1 === 'GARVISHENSKY©' || hero.line1 === 'GAVRISHEVSKY©' || hero.line1 === 'GAVRISHEVSKIY©' || !hero.line1) {
       hero.line1 = desiredLine1;
       data.hero = hero;
       try {
@@ -383,38 +367,13 @@ if (cur) {
   const closeBtn = document.getElementById('adviceClose');
 
   const steps = [
-    {
-      title: 'Сделай один трек визиткой',
-      body: 'Не распыляйся на пять сырых песен. Лучше один законченный релиз, который сразу объясняет, кто ты, какой у тебя вайб и почему тебя стоит запомнить.'
-    },
-    {
-      title: 'Определи 2–3 референса заранее',
-      body: 'Подбери конкретные ориентиры по звучанию, а не «что-то похожее». Так проще объяснить продюсеру, аранжировщику и дизайнеру, куда двигаться без лишних пересмотров.'
-    },
-    {
-      title: 'Проверь звук на трёх устройствах',
-      body: 'Послушай демо в наушниках, на телефоне и в машине. Если бочка, вокал и сибилянты читаются везде, значит релиз уже близок к рабочему уровню.'
-    },
-    {
-      title: 'Сделай короткий питч о себе',
-      body: 'Один абзац, где понятно: кто ты, что делаешь, в каком жанре работаешь и в чём твоя фишка. Этот текст пригодится и для заявок, и для сторис, и для презентаций.'
-    },
-    {
-      title: 'Планируй релиз на 7 дней вперёд',
-      body: 'День анонса, сниппет, релиз, первые 48 часов, реакция аудитории и повторный пуш. Релиз живёт не только в день выхода, а в сценарии вокруг него.'
-    },
-    {
-      title: 'Подготовь пакет для публикации',
-      body: 'Собери обложку, вертикальные видео, описание, теги, ссылку на пресейв и короткий текст для анонса. Когда всё лежит в одной папке, запуск идёт без паники.'
-    },
-    {
-      title: 'Не выпускайся без обратной связи',
-      body: 'Попроси 3–5 людей из своей аудитории послушать материал до релиза. Их комментарии часто подсказывают, что нужно докрутить в миксе, подаче или в первом хук-припеве.'
-    },
-    {
-      title: 'Нужен следующий шаг?',
-      body: 'Если хочешь узнать больше полезного, обсудить идею или записать трек, просто свяжись с нами. Подскажем, с чего лучше начать и что даст самый быстрый результат.'
-    }
+    {"title": "Поспешил – алгоритмы насмешил", "body": "Подготовь несколько законченных треков и выпускай их последовательно с интервалом 15–20 дней. Смотри на реакцию аудитории и после 3–5 релизов без результата корректируй продвижение."},
+    {"title": "Один артист – один жанр", "body": "Выбери жанр и работай в нём последовательно. Если хочется выпускать музыку в разных жанрах, создай для них отдельные профили артиста."},
+    {"title": "Постоянство – путь к успеху", "body": "Публикуй контент каждые несколько дней и выпускай новую музыку хотя бы раз в месяц."},
+    {"title": "Не звучи как нейросеть", "body": "Качество твоей музыки конкурирует в том числе с AI-артистами. Внимательно работай над материалом и звучанием."},
+    {"title": "Злой звукач – беда для фонограммы", "body": "Дай звукорежиссёру ясный бриф: референсы, настроение, пожелания к вокалу и общему звуку. Так результат будет ближе к твоей идее."},
+    {"title": "Сам себе режиссёр", "body": "Не спрашивай мнение всех подряд. Слушай полезную обратную связь, но решение о релизе принимай сам и доверяй своему вкусу."},
+    {"title": "Проверяй работу", "body": "Послушай песню на телефоне, в машине и в наушниках, а клип посмотри на телевизоре и телефоне. Запиши замечания и обсуди правки с командой."}
   ];
 
   let index = 0;
@@ -517,7 +476,7 @@ if (artistsToggle && allArtistsList) {
     allArtistsList.setAttribute('aria-hidden', String(!isOpen));
     allArtistsList.inert = !isOpen;
     allArtistsList.classList.toggle('open', isOpen);
-    artistsToggle.querySelector('span:first-child').textContent = isOpen ? 'Скрыть артистов' : 'Все артисты';
+    artistsToggle.querySelector('span:first-child').textContent = isOpen ? 'Скрыть артистов' : 'Ещё артисты';
   });
 }
 
@@ -682,3 +641,36 @@ document.querySelectorAll('.a-stat-n').forEach(el=>cObs.observe(el));
 // REVEAL
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.05});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// Service details on the home page. Catalog links remain as a no-script fallback.
+(function(){
+  const dialog = document.getElementById('serviceDialog');
+  if (!dialog || !dialog.showModal) return;
+  document.querySelectorAll('.svc-row[data-service-id]').forEach(row => row.addEventListener('click', event => {
+    event.preventDefault();
+    dialog.querySelector('[data-service-title]').textContent = row.querySelector('.svc-name').textContent;
+    dialog.querySelector('[data-service-price]').textContent = row.querySelector('.svc-tier').textContent;
+    dialog.querySelector('[data-service-copy]').textContent = row.dataset.serviceDescription;
+    dialog.querySelector('[data-service-order]').href = 'mailto:hello@garvishensky.pro?subject=' + encodeURIComponent(row.querySelector('.svc-name').textContent);
+    dialog.showModal();
+  }));
+  dialog.querySelector('[data-service-close]').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+})();
+
+// Four independent artist tiles, with no artist duplicated between tiles.
+(function(){
+  const artistGroups = [[["Андрей Бурдуковский", "https://avatars.yandex.net/get-music-content/14728505/8d8335f0.p.17483440/600x600", "https://music.yandex.ru/artist/17483440"], ["Сёстры Селезнёвы", "https://avatars.yandex.net/get-music-content/14082060/2f1fb31b.p.23046613/600x600", "https://music.yandex.ru/artist/23046613"], ["Marc Newy", "https://avatars.yandex.net/get-music-content/15142616/20d21ba7.p.17703646/m1000x1000", "https://music.yandex.ru/artist/17703646"]], [["Пчела", "https://avatars.yandex.net/get-music-content/16334817/25da6088.p.18939486/600x600", "https://music.yandex.ru/artist/18939486"], ["КОФЕБУКЕТЫ", "https://avatars.yandex.net/get-music-content/12554677/107b1870.p.23030315/600x600", "https://music.yandex.ru/artist/23030315"]], [["LEMU", "https://avatars.yandex.net/get-music-content/17649213/bbaa42ff.p.4060641/600x600", "https://music.yandex.ru/artist/4060641"], ["Отблеск витражей", "https://avatars.yandex.net/get-music-content/15018579/6723aefe.a.37545756-1/m1000x1000", "https://music.yandex.ru/artist/24499449"]], [["ANDRAW", "https://avatars.yandex.net/get-music-content/15499524/9834734f.p.12118164/600x600", "https://music.yandex.ru/artist/12118164"], ["Илья Тимошек", "https://avatars.yandex.net/get-music-content/14304155/621506c4.p.9786349/m1000x1000", "https://music.yandex.ru/artist/9786349"]]];
+  document.querySelectorAll('[data-artist-slot]').forEach((tile, slot) => {
+    const group = artistGroups[slot];
+    if (!group || group.length < 2) return;
+    let index = 0;
+    window.setInterval(() => {
+      index = (index + 1) % group.length;
+      const [name, image, link] = group[index];
+      tile.style.backgroundImage = `url("${image}")`;
+      tile.href = link;
+      tile.querySelector('.rotating-artist-name').textContent = name;
+    }, 4300 + slot * 650);
+  });
+})();

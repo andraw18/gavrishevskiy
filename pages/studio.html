@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>G-TEAM — Studio</title>
-  <meta name="description" content="Студия G-TEAM — запись вокала и музыки, продюсирование и онлайн-бронирование.">
+  <title>Top Music Production — Studio</title>
+  <meta name="description" content="Студия Top Music Production — запись вокала и музыки, продюсирование и бронирование по запросу.">
   <link rel="icon" href="../assets/favicon.svg">
-  <link rel="stylesheet" href="../assets/css/divisions.css">
+  <link rel="stylesheet" href="../assets/css/divisions.css?v=5">
 </head>
 <body>
   <nav class="division-nav">
-    <a class="division-logo" href="../index.html" aria-label="G-TEAM"><img src="../assets/icons/logo.svg" alt=""></a>
+    <a class="division-logo" href="../index.html" aria-label="Top Music Production"><img src="../assets/icons/logo.svg" alt=""></a>
     <div class="division-links">
       <a href="label.html">Лейбл</a>
       <a href="services.html">Продакшн</a>
@@ -23,11 +23,11 @@
   <header class="division-hero">
     <video autoplay muted loop playsinline preload="metadata" poster="../assets/media/images/studio-poster.jpg"><source src="../assets/media/video/studio-hero.mp4" type="video/mp4"></video>
     <div class="division-hero-content">
-      <p class="eyebrow">G-TEAM / 03</p>
+      <p class="eyebrow">Top Music Production / 03</p>
       <h1 class="division-title">STUDIO</h1>
       <div class="division-hero-foot">
         <p class="division-lead">Пространство, где можно <span>сосредоточиться на музыке.</span></p>
-        <a class="division-button red" href="#booking">Онлайн-бронирование</a>
+        <a class="division-button red" href="#booking">Забронировать</a>
       </div>
     </div>
   </header>
@@ -43,7 +43,7 @@
       </div>
       <div class="interior-slider" data-interior-slider tabindex="0" aria-label="Фотографии интерьера студии">
         <div class="interior-viewport"><div class="interior-track" data-interior-track>
-          <figure class="interior-slide"><img src="../assets/media/images/studio/interior-01.jpg" alt="Барабанная зона студии G-TEAM"><figcaption>Live room</figcaption></figure>
+          <figure class="interior-slide"><img src="../assets/media/images/studio/interior-01.jpg" alt="Барабанная зона студии Top Music Production"><figcaption>Live room</figcaption></figure>
           <figure class="interior-slide"><img src="../assets/media/images/studio/interior-02.jpg" alt="Гостевая зона студии"><figcaption>Studio lounge</figcaption></figure>
           <figure class="interior-slide"><img src="../assets/media/images/studio/interior-03.jpg" alt="Вокальная зона студии"><figcaption>Vocal booth</figcaption></figure>
           <figure class="interior-slide"><img src="../assets/media/images/studio/interior-04.jpg" alt="Барабанная установка в студии"><figcaption>Drum room</figcaption></figure>
@@ -51,6 +51,8 @@
         <div class="interior-controls"><span data-interior-count>01 / 04</span><div class="slider-arrows"><button type="button" data-interior-prev aria-label="Предыдущее фото">←</button><button type="button" data-interior-next aria-label="Следующее фото">→</button></div></div>
       </div>
     </section>
+
+    <section class="division-section studio-process rv"><div class="section-head"><div class="section-index">02 / В процессе</div><div><h2 class="section-title">Так звучит<br>работа</h2><p class="section-copy">Посмотрите, как мы записываем, сводим и собираем материал в студии.</p></div></div><div class="studio-process-grid"><video controls preload="metadata" playsinline src="../assets/media/video/portfolio-studio-plan.mp4"></video><video controls preload="metadata" playsinline src="../assets/media/video/portfolio-console.mp4"></video><video controls preload="metadata" playsinline src="../assets/media/video/portfolio-drums.mp4"></video><video controls preload="metadata" playsinline src="../assets/media/video/portfolio-guitar.mp4"></video></div></section>
 
     <section class="division-section rv" id="equipment">
       <div class="section-head"><div class="section-index">02 / Оборудование</div><div><h2 class="section-title">Рабочий<br>сетап</h2><p class="section-copy">Подбираем тракт под голос и задачу, а не заставляем артиста подстраиваться под технику. Нажмите на название прибора, чтобы узнать подробности.</p></div></div>
@@ -67,7 +69,7 @@
           </div>
         </div>
       </div>
-      <div class="equipment equipment-lists" hidden>
+      <div class="equipment equipment-lists">
         <article class="equipment-group">
           <div class="equipment-body">
             <h3 class="equipment-title">Контроль</h3>
@@ -168,28 +170,8 @@
     </section>
   </main>
 
-  <section class="booking studio-booking" id="booking">
-    <div class="studio-booking-map">
-      <iframe title="Карта Москвы" src="https://www.openstreetmap.org/export/embed.html?bbox=37.565%2C55.728%2C37.675%2C55.785&amp;layer=mapnik&amp;marker=55.756%2C37.620" loading="lazy"></iframe>
-      <div class="studio-booking-overlay">
-        <p class="section-index">05 / Бронирование</p>
-        <p class="booking-note">Москва. Точный адрес и схема прохода придут после подтверждения бронирования.</p>
-        <div class="studio-booking-links"><a href="mailto:hello@garvishensky.pro">hello@garvishensky.pro</a><a href="https://t.me/garvishensky" target="_blank" rel="noopener noreferrer">@garvishensky ↗</a></div>
-      </div>
-      <a class="studio-map-link" href="https://www.openstreetmap.org/?mlat=55.756&amp;mlon=37.620#map=13/55.756/37.620" target="_blank" rel="noopener noreferrer">Открыть карту ↗</a>
-    </div>
-    <form class="booking-form" data-booking-form>
-      <div class="booking-field"><label for="booking-name">Имя</label><input id="booking-name" name="name" required autocomplete="name"></div>
-      <div class="booking-field"><label for="booking-contact">Телефон / Telegram</label><input id="booking-contact" name="contact" required></div>
-      <div class="booking-field"><label for="booking-date">Дата</label><input id="booking-date" name="date" type="date" required></div>
-      <div class="booking-field"><label for="booking-time">Время</label><input id="booking-time" name="time" type="time" required></div>
-      <div class="booking-field full"><label for="booking-duration">Продолжительность</label><select id="booking-duration" name="duration"><option>1 час</option><option>2 часа</option><option>4 часа</option><option>Полный день</option></select></div>
-      <div class="booking-field full"><label for="booking-message">Что будем делать</label><textarea id="booking-message" name="message" rows="4"></textarea></div>
-      <button type="submit">Отправить заявку</button>
-      <p class="booking-status" aria-live="polite"></p>
-    </form>
-  </section>
-  <footer class="division-footer"><span>© 2026 G-TEAM</span><div class="division-footer-links"><a href="label.html">Лейбл</a><a href="services.html">Продакшн</a><a href="../index.html#contact">Контакты</a></div></footer>
+  <section class="studio-contact" id="booking"><p class="section-index">05 / Бронирование</p><h2>Забронировать студию</h2><p>Напиши удобную дату, время и задачу — подтвердим свободное окно и детали записи.</p><div><a class="division-button red" href="https://t.me/garvishensky" target="_blank" rel="noopener noreferrer">Написать в Telegram</a><a class="division-button" href="mailto:hello@garvishensky.pro?subject=Бронирование студии">Написать на почту</a></div></section>
+  <footer class="division-footer"><span>© 2026 Top Music Production</span><div class="division-footer-links"><a href="label.html">Лейбл</a><a href="services.html">Продакшн</a><a href="../index.html#contact">Контакты</a></div></footer>
 
   <div class="equipment-modal" id="equipmentModal" aria-hidden="true">
     <div class="equipment-modal-backdrop" data-equipment-close></div>
@@ -197,7 +179,7 @@
       <button class="equipment-modal-close" type="button" data-equipment-close aria-label="Закрыть">×</button>
       <div class="equipment-modal-media"><img src="" alt="" data-equipment-image></div>
       <div class="equipment-modal-content">
-        <p class="equipment-modal-kicker">G-TEAM / Equipment</p>
+        <p class="equipment-modal-kicker">Top Music Production / Equipment</p>
         <h3 class="equipment-modal-title" id="equipmentModalTitle" data-equipment-title></h3>
         <p class="equipment-modal-type" data-equipment-type></p>
         <p class="equipment-modal-description" data-equipment-description></p>
@@ -205,7 +187,7 @@
       </div>
     </article>
   </div>
-  <script src="../assets/js/equipment-images.js"></script>
+  <script src="../assets/js/equipment-images.js?v=3"></script>
   <script src="../assets/js/divisions.js"></script>
 </body>
 </html>

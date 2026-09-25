@@ -1,23 +1,4 @@
 
-const cur=document.getElementById('cur'),curR=document.getElementById('cur-r');
-let mx=0,my=0,rx=0,ry=0;
-(function(){
-  if (cur) {
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cur.style.setProperty('--mx', mx + 'px');
-      cur.style.setProperty('--my', my + 'px');
-      curR.style.setProperty('--mx', mx + 'px');
-      curR.style.setProperty('--my', my + 'px');
-    }, { passive:true });
-  }
-})();
-(function loop(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;curR.style.setProperty('--mx', rx+'px');curR.style.setProperty('--my', ry+'px');requestAnimationFrame(loop)})();
-document.querySelectorAll('a,.sc,.fb-item').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.style.transform='translate(-50%,-50%) scale(3)';cur.style.opacity='.4'});
-  el.addEventListener('mouseleave',()=>{cur.style.transform='translate(-50%,-50%) scale(1)';cur.style.opacity='1'});
-});
-
 // lazy video load
 (function(){
   const videos = Array.from(document.querySelectorAll('video[data-lazy-video]'));
