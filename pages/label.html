@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Top Music Production — Label</title>
-  <meta name="description" content="Top Music Production Label — выпуск, продвижение и развитие артистов.">
+  <title>Лейбл — Top Music Production</title>
+  <meta name="description" content="Лейбл Top Music Production — выпуск, продвижение и развитие артистов.">
   <link rel="icon" href="../assets/favicon.svg">
-  <link rel="stylesheet" href="../assets/css/divisions.css?v=5">
+  <link rel="stylesheet" href="../assets/css/divisions.css?v=41">
 </head>
-<body>
+<body class="label-page">
   <nav class="division-nav">
     <a class="division-logo" href="../index.html" aria-label="Top Music Production"><img src="../assets/icons/logo.svg" alt=""></a>
     <div class="division-links">
@@ -21,95 +21,55 @@
   </nav>
 
   <header class="division-hero">
-    <video autoplay muted loop playsinline preload="metadata" poster="../assets/media/images/label-poster.jpg"><source src="../assets/media/video/hero-cursor.mp4" type="video/mp4"></video>
+    <video autoplay muted loop playsinline preload="metadata" poster="../assets/media/images/label-hero-poster.jpg"><source src="../assets/media/video/label-hero-pingpong.mp4" type="video/mp4"></video>
     <div class="division-hero-content">
-      <p class="eyebrow">Top Music Production / 01</p>
-      <h1 class="division-title">LABEL</h1>
-      <div class="division-hero-foot">
-        <p class="division-lead">Не просто выпускаем музыку. <span>Строим карьеру артиста.</span></p>
-        <a class="division-button red" href="../index.html#contact">Отправить демо</a>
-      </div>
+      <p class="eyebrow">Top Music</p>
+      <h1 class="division-title">ЛЕЙБЛ</h1>
+      <p class="division-lead">Не просто выпускаем музыку. <span>Строим карьеру артиста.</span></p>
+      <div class="label-categories" aria-label="Направления лейбла"><a href="#partnership">Партнёрство ↗</a><a href="#distribution">Размещение ↗</a><a href="#promotion">Продвижение ↗</a></div>
     </div>
   </header>
 
   <main>
-    <section class="division-section rv">
-      <div class="section-head">
-        <div class="section-index">01 / Возможности</div>
-        <div>
-          <h2 class="section-title">От релиза<br>до аудитории</h2>
-          <p class="section-copy">Берём на себя выпуск, визуальную систему и продвижение. Для проектов с сильным потенциалом возможна работа по договору за роялти.</p>
-        </div>
+    <section class="label-detail-section label-partnership rv" id="partnership" aria-labelledby="partnership-title">
+      <div class="label-detail-head">
+        <div class="label-section-title"><h2 id="partnership-title">Партнёрство</h2><p class="partnership-discount">Скидка до 80%</p></div>
+        <div class="label-detail-lead"><div class="label-contact-actions"><a href="https://t.me/Gavrishevsky" target="_blank" rel="noopener noreferrer">Обсудить в Telegram ↗</a><a href="https://vk.ru/gavrishevsky" target="_blank" rel="noopener noreferrer">Написать в VK ↗</a></div></div>
       </div>
-      <div class="service-grid">
-        <a class="service-card label-service" href="#label-detail" data-label-title="Размещение" data-label-copy="Подготовим метаданные, карточку артиста и обложку, разместим релиз на площадках и проконтролируем дату выхода."><span class="card-no">01</span><h3 class="card-title">Размещение</h3><p class="card-copy">Дистрибьюция и сопровождение релиза.</p><span class="card-tag">Подробнее ↗</span></a>
-        <a class="service-card label-service" href="#label-detail" data-label-title="Продвижение" data-label-copy="Изучим аудиторию, составим план продвижения, подготовим контент и запустим подходящие каналы рекламы. По результатам скорректируем стратегию."><span class="card-no">02</span><h3 class="card-title">Продвижение</h3><p class="card-copy">План, контент и рост аудитории.</p><span class="card-tag">Подробнее ↗</span></a>
-        <a class="service-card label-service" id="partnership" href="#label-detail" data-label-title="Партнёрство" data-label-copy="Для выбранных артистов готовы вкладывать ресурсы в создание и продвижение музыки. При работе по договору скидка на услуги может достигать 80%; условия, вклад сторон и роялти согласуем индивидуально."><span class="card-no">03</span><h3 class="card-title">Партнёрство</h3><p class="card-copy">Вкладываемся в развитие перспективных проектов по договору.</p><span class="card-tag">Подробнее ↗</span></a>
+      <div class="partnership-layout">
+        <div class="partnership-left">
+          <div class="label-agreement"><span class="label-small-title">Суть:</span><div class="label-agreement-copy"><p>Вы заключаете с нами договор на выпуск определённого количества песен. Услуги для этих релизов предоставляем <strong>со скидкой</strong>, а взамен получаем согласованный процент роялти <strong>только с треков, созданных в рамках договора.</strong></p><p class="label-agreement-note">Никаких скрытых платежей и отчислений с прошлых или сторонних релизов.</p></div></div>
+        </div>
+        <div class="label-process">
+          <div class="label-steps-head"><h3>Как это работает</h3></div>
+          <ol class="label-steps">
+            <li><h4>Знакомство и бриф</h4><p>Цели, стиль, аудитория, объём работы и темп релизов.</p></li>
+            <li><h4>Договор</h4><p>Скидки, сроки и процент роялти фиксируем письменно.</p></li>
+            <li><h4>Стратегия</h4><p>План релизов и продвижения под ваши цели и бюджет.</p></li>
+            <li><h4>Производство песен</h4><p>Аранжировка, запись, сведение и мастеринг с согласованием.</p></li>
+            <li><h4>Размещение и промо</h4><p>Площадки, блогеры и реклама по льготным тарифам.</p></li>
+            <li><h4>Разделение роялти</h4><p>Отчёт и выплата нашей доли после подтверждения доходов.</p></li>
+          </ol>
+        </div>
       </div>
     </section>
 
-    <section class="label-case rv" aria-labelledby="label-case-title">
-      <div class="label-case-stats">
-        <p class="section-index">02 / Кейс артиста</p>
-        <div>
-          <p class="label-case-overline">ПЧЕЛА / развитие проекта</p>
-          <div class="label-case-number">2.5M<span>+</span></div>
-          <p class="label-case-description">слушателей в месяц. Системно развиваем проект: от релизной стратегии и визуала до контента, посевов и работы с аудиторией.</p>
-        </div>
-        <div class="label-case-metrics" aria-label="Показатели работы лейбла">
-          <div><strong>2.5M+</strong><span>слушателей<br>в месяц</span></div>
-          <div><strong>ЯМ</strong><span>основная<br>площадка</span></div>
-          <div><strong>360°</strong><span>музыка, контент<br>и релизы</span></div>
-          <div><strong>A&amp;R</strong><span>поддержка<br>на каждом этапе</span></div>
-        </div>
-      </div>
-      <div class="label-case-media" data-label-case-slider tabindex="0" aria-label="Фотографии артистов лейбла">
-        <div class="label-case-viewport">
-          <div class="label-case-track" data-label-case-track>
-            <a class="label-case-slide" href="https://music.yandex.ru/artist/18939486" target="_blank" rel="noopener noreferrer" aria-label="Открыть ПЧЕЛУ в Яндекс Музыке"><img src="https://avatars.yandex.net/get-music-content/16334817/25da6088.p.18939486/600x600" alt="ПЧЕЛА в Яндекс Музыке"><div class="label-case-media-caption"><span>Top Music Production / artist development</span><h2 id="label-case-title">ПЧЕЛА</h2></div></a>
-            <figure class="label-case-slide"><img src="../assets/media/images/studio/interior-01.jpg" alt="Рабочий процесс в студии Top Music Production"></figure>
-            <figure class="label-case-slide"><img src="../assets/media/images/studio/interior-03.jpg" alt="Вокальная зона студии Top Music Production"></figure>
-            <figure class="label-case-slide"><img src="../assets/media/images/studio/interior-04.jpg" alt="Барабанная зона студии Top Music Production"></figure>
-          </div>
-        </div>
-        <div class="label-case-controls"><span data-label-case-count>01 / 04</span><div class="slider-arrows"><button type="button" data-label-case-prev aria-label="Предыдущее фото">←</button><button type="button" data-label-case-next aria-label="Следующее фото">→</button></div></div>
-      </div>
+    <section class="label-detail-section label-distribution rv" id="distribution" aria-labelledby="distribution-title">
+      <div class="label-offer-layout"><div class="label-offer-intro"><div class="label-section-title"><h2 id="distribution-title">Размещение</h2><p>Музыка на всех площадках.</p></div><p>Дистрибьюция вашего релиза на Spotify, Apple Music, VK, Яндекс Музыке и других ключевых платформах.</p><div class="label-offer-price"><span>Дистрибьюция</span><strong>5 000 ₽</strong></div></div><div class="label-offer-details"><span class="label-small-title">Что мы берём на себя</span><ul><li>Заключим договор.</li><li>Проверим метаданные и сроки доставки релиза.</li><li>Решим вопросы с дистрибьютором или площадками.</li><li>Предоставим отчётность.</li></ul><p>Мы закрываем технические этапы — вы сосредотачиваетесь на творчестве.</p><div class="label-contact-actions"><a href="https://t.me/Gavrishevsky" target="_blank" rel="noopener noreferrer">Обсудить в Telegram ↗</a><a href="https://vk.ru/gavrishevsky" target="_blank" rel="noopener noreferrer">Написать в VK ↗</a></div></div></div>
     </section>
 
-    <section class="division-section label-artists rv">
-      <div class="section-head">
-        <div class="section-index">03 / Артисты</div>
-        <div><h2 class="section-title">С кем<br>работаем</h2><p class="section-copy">Каждая цифра начинается с сильного материала, точного позиционирования и регулярной работы с аудиторией.</p></div>
+    <section class="label-detail-section label-promotion rv" id="promotion" aria-labelledby="promotion-title">
+      <div class="label-detail-head"><div class="label-section-title"><h2 id="promotion-title">Продвижение</h2><p>Вашу музыку услышат.</p></div><p class="label-detail-lead">Выбираем площадки и инструменты продвижения под вашу аудиторию, релизный график и бюджет.</p></div>
+      <div class="label-promo-grid">
+        <article class="label-promo-card label-promo-card--lead"><div class="label-promo-top"><span>01 / Полный план</span><a class="label-saving" href="#partnership">Скидка до 80% ↗</a></div><h3>Стратегия продвижения под ключ</h3><p>Создадим персонализированный план с учётом ваших целей, бюджета и аудитории.</p><ul><li>Определим целевую аудиторию.</li><li>Выберем приоритетные площадки.</li><li>Составим график релизов и промоактивностей.</li><li>Разработаем контент-стратегию.</li></ul><div class="label-promo-bottom"><strong>50 000 ₽</strong><span>Чёткий алгоритм действий для достижения результата.</span></div></article>
+        <article class="label-promo-card"><div class="label-promo-top"><span>02 / Контент</span><a class="label-saving" href="#partnership">Скидка до 80% ↗</a></div><h3>Контент-стратегия</h3><p>Разработаем систему публикаций для продвижения релиза.</p><ul><li>Проанализируем аудиторию и нишу.</li><li>Найдём подходящие трендовые форматы.</li><li>Составим график контента до и после релиза.</li></ul><div class="label-promo-bottom"><strong>25 000 ₽</strong><span>Уже входит в стратегию продвижения под ключ.</span></div></article>
+        <article class="label-promo-card"><div class="label-promo-top"><span>03 / Охват</span></div><h3>Реклама у блогеров</h3><p>Организуем продвижение через авторов, чья аудитория подходит вашему проекту.</p><ul><li>Подберём площадки с нужной аудиторией.</li><li>Привлечём блогеров из нашей базы.</li><li>Согласуем формат и проконтролируем размещение.</li></ul><div class="label-promo-bottom"><strong>от 10 000 ₽</strong><span>Точечный охват и рост узнаваемости.</span></div></article>
       </div>
-      <div class="label-artists-grid">
-        <a class="label-artist-card" data-artist-slot="0" href="https://music.yandex.ru/artist/17483440" target="_blank" rel="noopener noreferrer"><img src="https://avatars.yandex.net/get-music-content/14728505/8d8335f0.p.17483440/600x600" alt="Андрей Бурдуковский в Яндекс Музыке"><div><h3>Андрей Бурдуковский</h3><p>Яндекс Музыка ↗</p></div></a>
-        <a class="label-artist-card" data-artist-slot="1" href="https://music.yandex.ru/artist/18939486" target="_blank" rel="noopener noreferrer"><img src="https://avatars.yandex.net/get-music-content/16334817/25da6088.p.18939486/600x600" alt="Пчела в Яндекс Музыке"><div><h3>Пчела</h3><p>Яндекс Музыка ↗</p></div></a>
-        <a class="label-artist-card" data-artist-slot="2" href="https://music.yandex.ru/artist/4060641" target="_blank" rel="noopener noreferrer"><img src="https://avatars.yandex.net/get-music-content/17649213/bbaa42ff.p.4060641/600x600" alt="LEMU в Яндекс Музыке"><div><h3>LEMU</h3><p>Яндекс Музыка ↗</p></div></a>
-        <a class="label-artist-card" data-artist-slot="3" href="https://music.yandex.ru/artist/12118164" target="_blank" rel="noopener noreferrer"><img src="https://avatars.yandex.net/get-music-content/15499524/9834734f.p.12118164/600x600" alt="ANDRAW в Яндекс Музыке"><div><h3>ANDRAW</h3><p>Яндекс Музыка ↗</p></div></a>
-      </div>
-    </section>
-
-    <section class="division-section label-process rv"><div class="section-head"><div class="section-index">04 / Процесс</div><div><h2 class="section-title">Как мы<br>работаем</h2><p class="section-copy">Выстраиваем работу лейбла вокруг развития артиста и каждого релиза.</p></div></div><ol class="label-process-list"><li>Знакомство и оценка проекта</li><li>Договор и стратегия</li><li>План релизов и дистрибьюция</li><li>Продвижение и анализ результатов</li></ol></section>
-
-    <section class="label-demo rv" id="demo" aria-labelledby="demo-title">
-      <div class="label-demo-copy">
-        <p class="section-index">04 / Demo</p>
-        <h2 class="label-demo-title" id="demo-title">Отправить<br><span>демо</span></h2>
-        <p>Присылайте ссылку на материал, пару слов о проекте и контакт. Прослушиваем только законченные работы.</p>
-      </div>
-      <form class="label-demo-form" data-demo-form>
-        <label><span>Имя / название проекта</span><input name="artist" required autocomplete="name" placeholder="Например, LEMU"></label>
-        <label><span>Telegram или телефон</span><input name="contact" required autocomplete="tel" placeholder="@username"></label>
-        <label class="full"><span>Ссылка на демо</span><input name="demo" required placeholder="Яндекс Музыка, SoundCloud, Google Drive..."></label>
-        <label class="full"><span>Расскажите о проекте</span><textarea name="message" rows="4" placeholder="Жанр, стадия проекта, планы на ближайший релиз"></textarea></label>
-        <button type="submit">Отправить демо <span>↗</span></button>
-        <p class="label-demo-status" aria-live="polite"></p>
-      </form>
+      <div class="label-contact-actions label-contact-actions--wide"><a href="https://t.me/Gavrishevsky" target="_blank" rel="noopener noreferrer">Обсудить продвижение в Telegram ↗</a><a href="https://vk.ru/gavrishevsky" target="_blank" rel="noopener noreferrer">Написать в VK ↗</a></div>
     </section>
   </main>
 
   <footer class="division-footer"><span>© 2026 Top Music Production</span><div class="division-footer-links"><a href="services.html">Продакшн</a><a href="studio.html">Студия</a><a href="../index.html#contact">Контакты</a></div></footer>
-  <dialog class="label-detail" id="labelDetail" aria-labelledby="labelDetailTitle"><button type="button" data-label-close aria-label="Закрыть">×</button><p>Top Music Production / Label</p><h2 id="labelDetailTitle"></h2><p data-label-description></p><a class="division-button red" href="../index.html#contact">Обсудить сотрудничество</a></dialog>
-  <script src="../assets/js/divisions.js"></script>
+  <script src="../assets/js/divisions.js?v=6"></script>
 </body>
 </html>

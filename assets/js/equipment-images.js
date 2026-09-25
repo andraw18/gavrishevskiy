@@ -46,5 +46,6 @@ window.GTEAM_EQUIPMENT_IMAGES = {
   "Магнитофон TASCAM TSR 8": "../assets/media/images/equipment/studio/equipment-56.webp",
   "Гитарный кабинет MARSHALL TSL 602": "../assets/media/images/equipment/studio/equipment-58.webp",
   "Басовый кабинет HARTKE HA1200": "../assets/media/images/equipment/studio/equipment-59.webp",
+  "Yamaha Recording Custom": "../assets/media/images/equipment/studio/equipment-drums.webp",
   "Общие фотки": "../assets/media/images/equipment/studio/equipment-61.webp"
 };

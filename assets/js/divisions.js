@@ -98,15 +98,6 @@ if (interiorSlider) {
   });
 }
 
-setupSlider({
-  rootSelector: '[data-label-case-slider]',
-  trackSelector: '[data-label-case-track]',
-  slideSelector: '.label-case-slide',
-  previousSelector: '[data-label-case-prev]',
-  nextSelector: '[data-label-case-next]',
-  countSelector: '[data-label-case-count]'
-});
-
 const equipmentTrack = document.querySelector('[data-equipment-track]');
 if (equipmentTrack) {
   const getEquipmentName = (value) => value
@@ -115,23 +106,50 @@ if (equipmentTrack) {
     .replace(/\s+-\s+500 rack/i, '');
   const getEquipmentType = (value) => value.split(' ')[0];
 
-  const equipmentEntries = Object.entries(window.GTEAM_EQUIPMENT_IMAGES || {});
-  const isMicrophone = ([label]) => /^(Goodfly|AKG|UAD Sphere|Audix|UAD Standart|Neumann|Rode|ARK|Biv-|Nevaton|Октава)/i.test(label);
+  const equipmentCatalog = window.GTEAM_EQUIPMENT_IMAGES || {};
+  const equipmentEntries = Object.entries(equipmentCatalog);
+  const microphoneEntries = equipmentEntries.filter(([label]) => /^(Goodfly|AKG|UAD Sphere|Audix|UAD Standart|Neumann|Rode|ARK|Biv-|Nevaton|Октава)/i.test(label));
+  const otherEntries = equipmentEntries.filter(([label]) => !/^(Goodfly|AKG|UAD Sphere|Audix|UAD Standart|Neumann|Rode|ARK|Biv-|Nevaton|Октава|Пульт Amek Big|Yamaha Recording Custom|Общие фотки)/i.test(label));
+  const splitIntoPools = (entries) => [0, 1, 2].map((offset) => entries.filter((_, index) => index % 3 === offset));
+  const equipmentSlots = [
+    [['Yamaha Recording Custom', equipmentCatalog['Yamaha Recording Custom']]],
+    ...splitIntoPools(microphoneEntries),
+    [['Пульт Amek Big', equipmentCatalog['Пульт Amek Big']]],
+    ...splitIntoPools(otherEntries)
+  ];
 
-  // The showcase starts with vocal tools, then continues with the rest of the studio chain.
-  equipmentEntries.sort((entryA, entryB) => Number(isMicrophone(entryB)) - Number(isMicrophone(entryA)));
-
-  equipmentEntries.forEach(([label, source]) => {
-    const name = getEquipmentName(label);
+  equipmentSlots.forEach((pool, slotIndex) => {
+    const [label, source] = pool[0];
     const slide = document.createElement('figure');
     slide.className = 'equipment-showcase-slide';
     slide.tabIndex = 0;
     slide.setAttribute('role', 'button');
-    slide.setAttribute('aria-label', `Открыть карточку: ${name}`);
-    slide.dataset.equipmentName = name;
-    slide.dataset.equipmentType = getEquipmentType(label);
-    slide.innerHTML = `<img src="${source}" alt="${name}" loading="lazy"><figcaption>${name}<span>${getEquipmentType(label)} / открыть</span></figcaption>`;
+    const renderEquipment = ([nextLabel, nextSource]) => {
+      const name = getEquipmentName(nextLabel);
+      slide.setAttribute('aria-label', `Открыть карточку: ${name}`);
+      slide.dataset.equipmentName = name;
+      slide.dataset.equipmentType = getEquipmentType(nextLabel);
+      slide.innerHTML = `<img src="${nextSource}" alt="${name}" loading="lazy"><figcaption>${name}<span>${getEquipmentType(nextLabel)} / открыть</span></figcaption>`;
+    };
+    renderEquipment([label, source]);
     equipmentTrack.appendChild(slide);
+    if (pool.length > 1) {
+      let itemIndex = 0;
+      let isPaused = false;
+      slide.addEventListener('mouseenter', () => { isPaused = true; });
+      slide.addEventListener('mouseleave', () => { isPaused = false; });
+      slide.addEventListener('focusin', () => { isPaused = true; });
+      slide.addEventListener('focusout', () => { isPaused = false; });
+      window.setInterval(() => {
+        if (isPaused) return;
+        slide.classList.add('is-changing');
+        window.setTimeout(() => {
+          itemIndex = (itemIndex + 1) % pool.length;
+          renderEquipment(pool[itemIndex]);
+          slide.classList.remove('is-changing');
+        }, 220);
+      }, 4200 + slotIndex * 350);
+    }
   });
 }
 
@@ -161,24 +179,6 @@ if (bookingForm) {
     ].join('\n'));
     const status = bookingForm.querySelector('.booking-status');
     if (status) status.textContent = 'Открываем письмо с заявкой...';
-    window.location.href = `mailto:hello@garvishensky.pro?subject=${subject}&body=${body}`;
-  });
-}
-
-const demoForm = document.querySelector('[data-demo-form]');
-if (demoForm) {
-  demoForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const data = new FormData(demoForm);
-    const subject = encodeURIComponent(`Демо: ${data.get('artist')}`);
-    const body = encodeURIComponent([
-      `Артист / проект: ${data.get('artist')}`,
-      `Контакт: ${data.get('contact')}`,
-      `Ссылка на демо: ${data.get('demo')}`,
-      `О проекте: ${data.get('message') || 'Не указано'}`
-    ].join('\n'));
-    const status = demoForm.querySelector('.label-demo-status');
-    if (status) status.textContent = 'Открываем письмо с вашим демо...';
     window.location.href = `mailto:hello@garvishensky.pro?subject=${subject}&body=${body}`;
   });
 }
@@ -232,7 +232,8 @@ if (equipmentModal) {
     'Dolby Type A Modified': 'Модифицированный шумоподавитель, применяемый как эффект для яркого и воздушного высокочастотного окраса.',
     'Tascam TSR-8': 'Восьмидорожечный катушечный магнитофон. Позволяет получить естественную ленточную компрессию, насыщение и мягкий верх.',
     'Marshall TSL 602': 'Ламповый гитарный комбо с несколькими каналами. Подходит для чистых, кранчевых и плотных перегруженных партий.',
-    'Hartke HA1200': 'Басовый усилительный тракт с собранным низом и читаемой атакой. Используем для записи бас-гитары через кабинет и комбинированный сигнал.'
+    'Hartke HA1200': 'Басовый усилительный тракт с собранным низом и читаемой атакой. Используем для записи бас-гитары через кабинет и комбинированный сигнал.',
+    'Yamaha Recording Custom': 'Yamaha Recording Custom — это легендарная серия ударных установок, которая давно стала эталоном для студийной работы. Точный, сфокусированный тон и контролируемый резонанс позволяют уверенно записывать барабаны в разных жанрах и сохранять естественную динамику исполнения.'
   };
   const normalizeEquipmentName = (value) => value
     .toLowerCase()
@@ -268,7 +269,7 @@ if (equipmentModal) {
     document.body.classList.remove('equipment-open');
   };
 
-  document.querySelectorAll('.equipment-list li').forEach((item) => {
+  document.querySelectorAll('.equipment-list li:not(.equipment-category)').forEach((item) => {
     item.tabIndex = 0;
     item.setAttribute('role', 'button');
     item.setAttribute('aria-haspopup', 'dialog');
@@ -332,35 +333,3 @@ if (equipmentModal) {
     if (event.key === 'Escape' && equipmentModal.classList.contains('open')) closeEquipment();
   });
 }
-
-// Label service detail windows.
-(function(){
-  const dialog = document.getElementById('labelDetail');
-  if (!dialog || !dialog.showModal) return;
-  document.querySelectorAll('.label-service').forEach(card => card.addEventListener('click', event => {
-    event.preventDefault();
-    dialog.querySelector('#labelDetailTitle').textContent = card.dataset.labelTitle;
-    dialog.querySelector('[data-label-description]').textContent = card.dataset.labelCopy;
-    dialog.showModal();
-  }));
-  dialog.querySelector('[data-label-close]').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
-})();
-
-// Same artist groups as on the home page; each group appears in one tile only.
-(function(){
-  const groups = [[["Андрей Бурдуковский", "https://avatars.yandex.net/get-music-content/14728505/8d8335f0.p.17483440/600x600", "https://music.yandex.ru/artist/17483440"], ["Сёстры Селезнёвы", "https://avatars.yandex.net/get-music-content/14082060/2f1fb31b.p.23046613/600x600", "https://music.yandex.ru/artist/23046613"], ["Marc Newy", "https://avatars.yandex.net/get-music-content/15142616/20d21ba7.p.17703646/m1000x1000", "https://music.yandex.ru/artist/17703646"]], [["Пчела", "https://avatars.yandex.net/get-music-content/16334817/25da6088.p.18939486/600x600", "https://music.yandex.ru/artist/18939486"], ["КОФЕБУКЕТЫ", "https://avatars.yandex.net/get-music-content/12554677/107b1870.p.23030315/600x600", "https://music.yandex.ru/artist/23030315"]], [["LEMU", "https://avatars.yandex.net/get-music-content/17649213/bbaa42ff.p.4060641/600x600", "https://music.yandex.ru/artist/4060641"], ["Отблеск витражей", "https://avatars.yandex.net/get-music-content/15018579/6723aefe.a.37545756-1/m1000x1000", "https://music.yandex.ru/artist/24499449"]], [["ANDRAW", "https://avatars.yandex.net/get-music-content/15499524/9834734f.p.12118164/600x600", "https://music.yandex.ru/artist/12118164"], ["Илья Тимошек", "https://avatars.yandex.net/get-music-content/14304155/621506c4.p.9786349/m1000x1000", "https://music.yandex.ru/artist/9786349"]]];
-  document.querySelectorAll('.label-artist-card[data-artist-slot]').forEach((card,slot) => {
-    const group = groups[slot];
-    if (!group || group.length < 2) return;
-    let index = 0;
-    setInterval(() => {
-      index = (index + 1) % group.length;
-      const [name,image,link] = group[index];
-      card.href = link;
-      card.querySelector('img').src = image;
-      card.querySelector('img').alt = name + ' в Яндекс Музыке';
-      card.querySelector('h3').textContent = name;
-    }, 4300 + slot * 650);
-  });
-})();
