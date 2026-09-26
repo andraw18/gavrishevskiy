@@ -470,3 +470,10 @@ a.label-saving:hover,a.label-saving:focus-visible{background:var(--red);color:#f
 
 @media(min-width:901px){.division-links .mobile-contact{display:none}}
 @media(max-width:900px){.division-links{overflow-y:auto;max-height:100svh}}
+.division-links .mobile-contact-links a:nth-child(1){background:#176687;border-color:transparent}
+.division-links .mobile-contact-links a:nth-child(2){background:#174f9b;border-color:transparent}
+.division-links .mobile-contact-links a:nth-child(3){background:linear-gradient(125deg,#54266d 0%,#762954 38%,#8f304d 64%,#98512f 100%);border-color:transparent}
+.division-links .mobile-contact-links a:nth-child(4){background:#28693c;border-color:transparent}
+.division-links .mobile-contact-links a span{color:#fff}
+.division-links .mobile-contact-links a:hover,.division-links .mobile-contact-links a:focus-visible{filter:brightness(1.14);border-color:transparent}
+@media(max-width:900px){.division-links > a::before{display:none}}

@@ -297,3 +297,10 @@ footer{padding:1.8rem 2.5rem;border-top:1px solid var(--line);display:flex;justi
 .mob-nav .mobile-contact-links a:hover,.mob-nav .mobile-contact-links a:focus-visible{border-color:var(--red);background:rgba(255,255,255,.08);outline:none}
 
 @media(max-width:900px){.mob-nav{overflow-y:auto}}
+.mob-nav .mobile-contact-links a:nth-child(1){background:#176687;border-color:transparent}
+.mob-nav .mobile-contact-links a:nth-child(2){background:#174f9b;border-color:transparent}
+.mob-nav .mobile-contact-links a:nth-child(3){background:linear-gradient(125deg,#54266d 0%,#762954 38%,#8f304d 64%,#98512f 100%);border-color:transparent}
+.mob-nav .mobile-contact-links a:nth-child(4){background:#28693c;border-color:transparent}
+.mob-nav .mobile-contact-links a span{color:#fff}
+.mob-nav .mobile-contact-links a:hover,.mob-nav .mobile-contact-links a:focus-visible{filter:brightness(1.14);border-color:transparent}
+.mob-nav > a::before{display:none}
