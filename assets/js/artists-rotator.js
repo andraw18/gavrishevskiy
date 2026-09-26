@@ -5,7 +5,9 @@
 
   // A higher position in each spreadsheet group gets a longer turn on the card.
   const displayDurations = [11000, 9000, 7500, 6300, 5200, 4300];
-  fetch(tiles[0].closest('.artists-rotator').dataset.artistData)
+  const dataUrl = new URL(tiles[0].closest('.artists-rotator').dataset.artistData, location.href);
+  dataUrl.searchParams.set('_', Date.now());
+  fetch(dataUrl, { cache: 'no-store' })
     .then(response => {
       if (!response.ok) throw new Error('Artist list unavailable');
       return response.json();
@@ -13,8 +15,12 @@
     .then(groups => {
       tiles.forEach((tile, slot) => {
         const group = groups[slot];
-        if (!Array.isArray(group) || group.length < 2) return;
+        if (!Array.isArray(group) || !group.length) return;
         const name = tile.querySelector('.rotating-artist-name');
+        tile.style.backgroundImage = `url("${group[0].image}")`;
+        tile.href = group[0].url;
+        name.textContent = group[0].name;
+        if (group.length < 2) return;
         let index = 0;
         let timer;
         let changing = false;

@@ -79,52 +79,6 @@
   safePlay();
 })();
 
-// HERO CMS SYNC
-(function(){
-  const STORAGE_KEY = 'garvishensky_cms';
-  const safeJson = (raw) => {
-    try { return JSON.parse(raw || '{}'); } catch { return {}; }
-  };
-
-  const applyHeroData = () => {
-    const data = safeJson(localStorage.getItem(STORAGE_KEY));
-    const hero = data.hero || {};
-    const desiredLine1 = 'Top Music©';
-
-    const line1 = document.querySelector('.hero .h-line1');
-    const line2 = document.querySelector('.hero .h-line2');
-
-    if (hero.line1 === 'Top Music Production©' || hero.line1 === 'G-TEAM©' || hero.line1 === 'GARVISHENSKY©' || hero.line1 === 'GAVRISHEVSKY©' || hero.line1 === 'GAVRISHEVSKIY©' || !hero.line1) {
-      hero.line1 = desiredLine1;
-      data.hero = hero;
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-      } catch {}
-    }
-
-    const renderBrandLine = (value) => {
-      if (!line1) return;
-      const raw = (value || desiredLine1).trim();
-      const base = raw.replace(/©\s*$/, '');
-      line1.innerHTML = `<span class="brand-main">${base}</span><span class="brand-c">©</span>`;
-    };
-
-    if (hero.line1 && hero.line1.endsWith('©')) {
-      renderBrandLine(hero.line1);
-    } else if (line1) {
-      line1.textContent = hero.line1 || desiredLine1;
-    }
-    if (line2 && hero.line2) line2.textContent = hero.line2;
-
-  };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', applyHeroData, { once: true });
-  } else {
-    applyHeroData();
-  }
-})();
-
 // LAZY VIDEOS
 (function(){
   const videos = Array.from(document.querySelectorAll('video[data-lazy-video]'));
