@@ -443,10 +443,4 @@ a.label-saving:hover,a.label-saving:focus-visible{background:var(--red);color:#f
 /* Shared header control height and direct contact actions. */
 .division-contact{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 1.35rem}
 .division-menu{width:44px;height:44px}
-.label-contact-actions{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:auto}
-.label-contact-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.8rem 1rem;border:1px solid rgba(83,143,255,.65);background:rgba(53,120,246,.14);color:#d8e5ff;font-size:.52rem;font-weight:700;line-height:1.3;text-transform:uppercase;transition:background .2s,color .2s}
-.label-contact-actions a:hover,.label-contact-actions a:focus-visible{background:#3578f6;color:#fff}
-.label-contact-actions--wide{margin-top:1.25rem}
-.label-contact-actions--wide a{flex:1 1 230px}
 @media(max-width:900px){.division-menu{display:grid;place-items:center}}
-@media(max-width:600px){.label-contact-actions a{flex:1 1 100%}}
