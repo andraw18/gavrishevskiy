@@ -14,6 +14,7 @@ button,input,select,textarea{font:inherit}
 .division-logo{width:32px;display:block}
 .division-logo img{display:block;width:100%}
 .division-links{display:flex;align-items:center;gap:2rem;margin-left:auto}
+.division-links .division-mobile-link{display:none}
 .division-links a,.division-contact{font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;transition:color .2s}
 .division-links a{color:var(--muted)}
 .division-links a:hover,.division-links a[aria-current="page"]{color:var(--white)}
@@ -168,7 +169,7 @@ button,input,select,textarea{font:inherit}
 .equipment-modal-card{position:relative;width:min(1040px,94vw);max-height:min(760px,90vh);display:grid;grid-template-columns:minmax(300px,.9fr) 1.1fr;background:#080808;border:1px solid var(--line);overflow:auto;transform:translateY(18px);transition:transform .35s var(--ease)}
 .equipment-modal.open .equipment-modal-card{transform:none}
 .equipment-modal-media{min-height:520px;background:#111}
-.equipment-modal-media img{width:100%;height:100%;object-fit:cover;filter:none}
+.equipment-modal-media img{width:100%;height:100%;object-fit:contain;filter:none}
 .equipment-modal-content{padding:3rem;display:flex;flex-direction:column}
 .equipment-modal-close{position:absolute;right:1rem;top:1rem;width:42px;height:42px;border:1px solid var(--line);background:#080808;color:var(--white);font-size:1rem;cursor:pointer;z-index:2}
 .equipment-modal-kicker{font-size:.44rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:2rem}
@@ -250,7 +251,7 @@ body.equipment-open{overflow:hidden}
   .equipment-image{height:230px}
   .equipment-modal{padding:.75rem}
   .equipment-modal-card{grid-template-columns:1fr;max-height:92vh}
-  .equipment-modal-media{min-height:260px;height:34vh}
+  .equipment-modal-media{min-height:0;height:min(62svh,560px);display:grid;place-items:center;padding:.5rem}
   .equipment-modal-content{padding:2rem 1.25rem}
   .equipment-modal-title{font-size:clamp(1.8rem,10vw,3rem)}
   .equipment-modal-hint{padding-top:2rem}
@@ -444,3 +445,17 @@ a.label-saving:hover,a.label-saving:focus-visible{background:var(--red);color:#f
 .division-contact{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 1.35rem}
 .division-menu{width:44px;height:44px}
 @media(max-width:900px){.division-menu{display:grid;place-items:center}}
+/* Match the numbered full-screen mobile navigation on the home and production pages. */
+@media(max-width:900px){
+  .division-nav{z-index:201}
+  .division-logo{position:relative;z-index:202}
+  .division-contact{display:inline-flex;margin-left:auto;padding:0 .8rem;font-size:.43rem;white-space:nowrap;position:relative;z-index:202}
+  .division-menu{margin-left:0;position:relative;z-index:202;cursor:pointer}
+  .division-links{display:flex!important;position:fixed!important;inset:0!important;width:100vw;min-height:100svh!important;margin:0!important;padding:7.25rem 1.5rem 2rem!important;background:rgba(8,8,8,.985)!important;backdrop-filter:blur(20px);flex-direction:column;align-items:stretch!important;justify-content:flex-start;gap:.2rem!important;counter-reset:mobile-nav;transform:translateX(100%);opacity:0;visibility:hidden;pointer-events:none;transition:transform .45s var(--ease),opacity .2s ease,visibility .2s ease}
+  .division-links .division-mobile-link{display:flex}
+  .division-links::before{content:'Top Music Production / Навигация';margin-bottom:1.7rem;font-size:.44rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+  .division-nav.open .division-links{transform:none;opacity:1;visibility:visible;pointer-events:auto}
+  .division-nav .division-links a,.division-nav.open .division-links a{display:flex;align-items:center;gap:.45rem;min-height:3.85rem;padding:.75rem 0;border-bottom:1px solid var(--line);font-family:'Unbounded',sans-serif;font-size:clamp(1.75rem,8vw,3.2rem);font-weight:700;line-height:.94;letter-spacing:-.055em;text-transform:uppercase;color:var(--white)}
+  .division-links a::before{counter-increment:mobile-nav;content:counter(mobile-nav,decimal-leading-zero);font-size:.42rem;font-weight:600;letter-spacing:.04em;color:var(--red);margin-right:.45rem;flex:none}
+  .division-links a::after{content:'↗';font-size:.58rem;color:var(--red);margin-left:auto;flex:none}
+}

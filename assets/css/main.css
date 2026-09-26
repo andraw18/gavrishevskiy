@@ -596,6 +596,8 @@ nav.stuck{background:rgba(17,17,17,.93);backdrop-filter:blur(20px);padding:1.1re
   align-self:flex-start;
 }
 .ticker-inner{display:flex;align-items:center;animation:tick 32s linear infinite}
+.ticker-inner{width:max-content;animation-duration:var(--ticker-duration,32s)}
+.ticker-group{display:flex;align-items:center;flex:none}
 .ticker-inner:hover{animation-play-state:paused}
 .t-item{flex-shrink:0;padding:0 3.5rem;display:flex;align-items:center;gap:2rem;cursor:default}
 .t-item img{height:30px;width:auto;max-width:150px;object-fit:contain;opacity:.5;vertical-align:middle;transition:opacity .2s;filter:grayscale(1) brightness(.9) contrast(.92)}
@@ -1122,4 +1124,12 @@ a,button,.svc-row,.bc,.tr-row{cursor:pointer}
 .svc-discount{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:1rem 1.4rem;border:1px solid #ff5252;background:#e63232;color:#fff;font:750 .62rem/1.35 'Unbounded',sans-serif;text-align:center;text-transform:uppercase;white-space:nowrap;box-shadow:0 0 28px rgba(230,50,50,.28);transition:background .2s,box-shadow .2s}
 .svc-discount:hover,.svc-discount:focus-visible{background:#b9222b;box-shadow:0 0 38px rgba(230,50,50,.4)}
 .svc-tier,.svc-row:hover .svc-tier{border-color:transparent;background:transparent;color:var(--w);font-size:clamp(.75rem,1.25vw,1.05rem);font-weight:750;letter-spacing:0;padding:0;text-transform:none;white-space:nowrap}
+/* Keep both ticker copies identical so the loop has no visible seam. */
+.hero-ticker .ticker-inner{animation-duration:var(--ticker-duration,32s)}
+@media(max-width:900px){
+  .mob-nav{counter-reset:mobile-nav}
+  .mob-nav a{font-size:clamp(1.75rem,8vw,3.2rem);gap:.45rem;justify-content:flex-start}
+  .mob-nav a::before{counter-increment:mobile-nav;content:counter(mobile-nav,decimal-leading-zero);font-size:.42rem;font-weight:600;letter-spacing:.04em;color:var(--red);align-self:center;flex:none;margin-right:.45rem}
+  .mob-nav a::after{margin-left:auto;flex:none}
+}
 @media(max-width:600px){.services .sec-head{align-items:flex-start}.svc-discount{min-height:48px;padding:.8rem 1rem;font-size:.52rem}.svc-tier,.svc-row:hover .svc-tier{font-size:.58rem}}

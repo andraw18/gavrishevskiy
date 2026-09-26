@@ -13,6 +13,31 @@
       return response.json();
     })
     .then(groups => {
+      const ticker = document.querySelector('.hero-ticker .ticker-inner');
+      if (ticker) {
+        const seen = new Set();
+        const artists = groups.flat().filter(artist => {
+          if (!artist?.name || !artist?.url || seen.has(artist.url)) return false;
+          seen.add(artist.url);
+          return true;
+        });
+        const makeGroup = (hidden = false) => {
+          const group = document.createElement('div');
+          group.className = 'ticker-group';
+          if (hidden) group.setAttribute('aria-hidden', 'true');
+          artists.forEach(artist => {
+            const item = document.createElement('span');
+            item.className = 't-item';
+            const label = document.createElement('span');
+            label.textContent = artist.name;
+            item.append(label);
+            group.append(item);
+          });
+          return group;
+        };
+        ticker.replaceChildren(makeGroup(), makeGroup(true));
+        ticker.style.setProperty('--ticker-duration', `${Math.max(45, artists.length * 3)}s`);
+      }
       tiles.forEach((tile, slot) => {
         const group = groups[slot];
         if (!Array.isArray(group) || !group.length) return;
