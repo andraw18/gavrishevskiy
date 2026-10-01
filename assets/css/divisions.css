@@ -11,7 +11,7 @@ a{color:inherit;text-decoration:none}
 button,input,select,textarea{font:inherit}
 
 .division-nav{position:fixed;inset:0 0 auto;z-index:100;display:flex;align-items:center;gap:2rem;padding:1.35rem 2.5rem;background:rgba(5,5,5,.8);backdrop-filter:blur(14px);border-bottom:1px solid rgba(242,240,235,.06)}
-.division-logo{width:32px;display:block}
+.division-logo{width:70px;display:block}
 .division-logo img{display:block;width:100%}
 .division-links{display:flex;align-items:center;gap:2rem;margin-left:auto}
 .division-links .division-mobile-link{display:none}

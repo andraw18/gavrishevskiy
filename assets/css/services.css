@@ -50,7 +50,7 @@ a{color:inherit;text-decoration:none}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2.5rem;background:rgba(5,5,5,.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--line2);transition:background .3s,padding .3s var(--ease)}
 nav.stuck{background:rgba(17,17,17,.94);padding:1rem 2.5rem}
 .n-logo{display:flex;align-items:center;justify-content:flex-start;line-height:1;position:relative}
-.nav-logo-svg{width:34px;height:auto;display:block;color:var(--w);filter:drop-shadow(0 0 10px rgba(230,50,50,.16));transition:opacity .2s var(--ease),transform .2s var(--ease)}
+.nav-logo-svg{width:70px;height:auto;display:block;color:var(--w);filter:drop-shadow(0 0 10px rgba(230,50,50,.16));transition:opacity .2s var(--ease),transform .2s var(--ease)}
 .nav-logo-text{position:absolute;left:0;top:50%;transform:translateY(-50%) scale(.98);opacity:0;font-family:'Unbounded',sans-serif;font-size:.43rem;letter-spacing:.28em;text-transform:uppercase;color:var(--w);white-space:nowrap;transition:opacity .2s var(--ease),transform .2s var(--ease)}
 .brand-c{font-size:.56em;line-height:0;vertical-align:super;display:inline-block;transform:translateY(-.08em)}
 .n-logo:hover .nav-logo-svg,.n-logo:focus-visible .nav-logo-svg{opacity:0;transform:scale(.92)}
